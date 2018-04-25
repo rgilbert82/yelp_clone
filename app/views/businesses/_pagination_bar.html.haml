@@ -1,0 +1,12 @@
+.pagination-bar
+  .current-page
+    - if @count > 1
+      = link_to "prev", city_business_path(@city, @business, page: @page, count: @count - 1), remote: true
+    - else
+      %span.grayed-link prev
+  .page-links
+    - if @count < @pages
+      %span
+        = link_to "next", city_business_path(@city, @business, page: @page, count: @count + 1), remote: true
+    - else
+      %span.grayed-link next

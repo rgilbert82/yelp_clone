@@ -1,0 +1,11 @@
+.section-wrapper
+  = render "city_list_header", city_name: @city.name, category: "All Users"
+
+  %section.all-users-list
+    .user-make-friends
+      - if @users.size == 0
+        .oops
+          %span.empty-list-2 Oops, there are no users here!
+      %ul
+        - @users.each do |user|
+          = render "friend_list_item", friend: user, index: true

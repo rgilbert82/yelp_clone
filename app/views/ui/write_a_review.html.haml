@@ -1,0 +1,171 @@
+%section.ui-write-review
+  .write-review-main-column
+    %h3 Write A Review
+    .write-review-business-header
+      .business-list-icon
+        = link_to "", class: "btn" do
+          %span.glyphicon.glyphicon-cutlery
+      .write-review-business-details
+        %h4
+          = link_to "Fatburger"
+        .price-and-type
+          $$ &#8226;
+          = link_to "Hamburgers"
+        .business-address
+          %p 727 N Broadway
+          %p Los Angeles, CA 90012
+
+    .write-review-content
+      .write-review-content-header
+        %h5 Your Review
+      %form.business-rating
+        .write-review-content-box
+          .star-rating
+            %input(type="radio" name="select-star" id="star-1" hidden)
+            %label.star-box(for="star-1")
+              %span.glyphicon.glyphicon-star
+            %input(type="radio" name="select-star" id="star-2" hidden)
+            %label.star-box(for="star-2")
+              %span.glyphicon.glyphicon-star
+            %input(type="radio" name="select-star" id="star-3" hidden)
+            %label.star-box(for="star-3")
+              %span.glyphicon.glyphicon-star
+            %input(type="radio" name="select-star" id="star-4" hidden)
+            %label.star-box(for="star-4")
+              %span.glyphicon.glyphicon-star
+            %input(type="radio" name="select-star" id="star-5" hidden)
+            %label.star-box(for="star-5")
+              %span.glyphicon.glyphicon-star
+          %span.select-your-rating
+            Select your rating
+          %textarea(name="review-content" rows="6" placeholder="Write your review here! Your review helps other learn about great local businesses.")
+        .survey-questions
+          .survey-question
+            %h5 Good For Groups
+            %label
+              %input(type="radio" name="good-for-groups")
+              Yes
+            %label
+              %input(type="radio" name="good-for-groups")
+              No
+            %label
+              %input(type="radio" name="good-for-groups")
+              Not Sure
+          .survey-question
+            %h5 Accepts Apple Pay
+            %label
+              %input(type="radio" name="accepts-apple-pay")
+              Yes
+            %label
+              %input(type="radio" name="accepts-apple-pay")
+              No
+            %label
+              %input(type="radio" name="accepts-apple-pay")
+                Not Sure
+          .survey-question
+            %h5 Good For Dancing
+            %label
+              %input(type="radio" name="good-for-dancing")
+              Yes
+            %label
+              %input(type="radio" name="good-for-dancing")
+              No
+            %label
+              %input(type="radio" name="good-for-dancing")
+                Not Sure
+          .survey-question
+            %h5 Has TV
+            %label
+              %input(type="radio" name="has-tv")
+              Yes
+            %label
+              %input(type="radio" name="has-tv")
+              No
+            %label
+              %input(type="radio" name="has-tv")
+                Not Sure
+        .review-form-submit
+          %input(type="submit" class="btn write-review" value="Post Review")
+          = link_to "Cancel"
+
+        %aside * You can always edit or remove reviews later.
+
+  .write-review-sidebar
+    %h3 Reviews for Fatburger
+    .reviews-sidebar-list
+      %ul
+        %li
+          .sidebar-review-wrapper
+            .sidebar-reviewer-info
+              .reviewer-icon
+                = link_to "", class: "btn" do
+                  %span.glyphicon.glyphicon-user
+              .reviewer-details
+                %h5
+                  = link_to "John Doe"
+            .review-content
+              .star-rating
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box
+                  %span.glyphicon.glyphicon-star
+              .review-date
+                %span 3/11/17
+              .review-text
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        %li
+          .sidebar-review-wrapper
+            .sidebar-reviewer-info
+              .reviewer-icon
+                = link_to "", class: "btn" do
+                  %span.glyphicon.glyphicon-user
+              .reviewer-details
+                %h5
+                  = link_to "Bob Smith"
+            .review-content
+              .star-rating
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box
+                  %span.glyphicon.glyphicon-star
+                .star-box
+                  %span.glyphicon.glyphicon-star
+              .review-date
+                %span 3/10/17
+              .review-text
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        %li
+          .sidebar-review-wrapper
+            .sidebar-reviewer-info
+              .reviewer-icon
+                = link_to "", class: "btn" do
+                  %span.glyphicon.glyphicon-user
+              .reviewer-details
+                %h5
+                  = link_to "Jane Doe"
+            .review-content
+              .star-rating
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+              .review-date
+                %span 3/09/17
+              .review-text
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

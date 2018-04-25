@@ -1,0 +1,15 @@
+%section.ui-form-page
+  %h2 Sign Up
+
+  %form.form-group
+    %input(type="text" class="form-control" id="name" name="name" placeholder="Name")
+    %input(type="text" class="form-control" id="email" name="email" placeholder="Email")
+    %input(type="text" class="form-control" id="password" name="password" placeholder="Password")
+    %label(for="city") City
+    %select(type="text" class="form-control" id="city" name="city")
+      %option(value="Los Angeles, CA") Los Angeles
+    %input(type="submit" class="btn write-review" value="Sign Up")
+
+  %aside
+    Already registered?
+    = link_to "Log In"

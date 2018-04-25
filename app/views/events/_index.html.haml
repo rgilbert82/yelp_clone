@@ -1,0 +1,31 @@
+.section-wrapper
+  = render "city_list_header", city_name: nil, category: "Upcoming Events"
+
+.section-wrapper
+  %section.ui-index
+    %ul.businesses-list
+      - if @events.size == 0
+        %p.empty-list-2 There are no upcoming events
+      - else
+        - @events.each_with_index do |event, index|
+          = render "event_list_item", index: index + 1, event: event
+
+    - if @pages > 1
+      .pagination-bar
+        .current-page Page #{@count} of #{@pages}
+        .page-links
+          - if @count > 1
+            = link_to "prev", events_path(count: @count - 1), remote: true
+
+          - 1.upto(@pages) do |n|
+            - if @count == n
+              %span #{n}
+            - else
+              %span
+                = link_to n, events_path(count: n), remote: true
+
+          - if @count < @pages
+            %span
+              = link_to "next", events_path(count: @count + 1), remote: true
+          - else
+            %span.grayed-link next

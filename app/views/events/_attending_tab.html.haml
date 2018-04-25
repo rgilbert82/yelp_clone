@@ -1,0 +1,30 @@
+- if event.start_time > DateTime.now
+  %h2 <strong>Attending (#{event.users.size})</strong>
+- else
+  %h2 <strong>Attended (#{event.users.size})</strong>
+- if logged_in? && current_user.owns_event?(event)
+  = link_to "Edit Event", edit_city_business_event_path(city, business, event),class: "right-float-link"
+.event-attendees
+  - if event.users.size == 0
+    %span.empty-list No one is attending this event yet
+  %ul
+    - event.users.each do |person|
+      %li
+        .user-friend-thumb
+          .friend-icon
+            = link_to user_path(person), class: "btn" do
+              - unless person.avatar.file.nil?
+                = image_tag(person.avatar_url(:thumb).to_s)
+              - else
+                %span.glyphicon.glyphicon-user
+          .friend-details
+            %h5
+              = link_to "#{person.name}", user_path(person)
+            %h6 #{ person.city.format_city_state }
+            .friend-thumb-stats
+              .friend-thumb-stat
+                %span.glyphicon.glyphicon-user
+                %span <b>#{person.all_friends.count}</b>
+              .friend-thumb-stat
+                %span.glyphicon.glyphicon-star-empty
+                %span <b>#{person.reviews.count}</b>

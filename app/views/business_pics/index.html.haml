@@ -1,0 +1,27 @@
+%section.top-gray-header
+  .section-wrapper
+    .business-gray-photos-header-wrapper
+      = render 'shared/messages'
+      .business-profile-header
+        = render "businesses/business_profile_info"
+        - if logged_in?
+          .business-profile-add-image
+            = render "image_form"
+
+.section-wrapper
+  %section.ui-photos-gallery
+    %h3 Pictures
+    - unless @business.has_images?
+      .empty-list-2 #{@business.name} has no pictures.
+      .empty-list-2 Upload some!
+    - else
+      .picture-thumbnail-gallery
+        - @business.business_pics.each do |pic|
+          = link_to city_business_photo_path(@city, @business, pic), remote: true, data_id: pic.id do
+            = image_tag(pic.image_url(:thumb).to_s)
+
+- if @photo_id
+  :javascript
+    $(".picture-thumbnail-gallery").find("[data_id='#{@photo_id}']").click();
+
+.photo-modal

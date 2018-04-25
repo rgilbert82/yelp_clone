@@ -1,0 +1,18 @@
+%li.topic-list-item
+  .user-icon
+    = link_to user_path(user), class: "btn" do
+      - unless user.avatar.file.nil?
+        = image_tag(user.avatar_url(:thumb).to_s)
+      - else
+        %span.glyphicon.glyphicon-user
+  .post-user-info
+    %h4
+      = link_to user.name, user_path(user)
+    %h6 #{user.city.format_city_state}
+  .post-summary
+    %p #{post.body}
+    %small #{how_long_ago(post.created_at)}
+
+  - if logged_in? && current_user_is_admin?
+    .admin-delete-link
+      = link_to "[Delete Post]", admin_post_path(id: post.id), method: :delete, data: {confirm: "Are you sure?"}  

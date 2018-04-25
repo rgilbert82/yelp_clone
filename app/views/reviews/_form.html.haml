@@ -1,0 +1,61 @@
+.write-review-main-column
+  %h3 #{ review_obj.new_record? ? 'Write A Review' : 'Edit Your Review'}
+  .write-review-business-header
+    .business-list-icon
+      = link_to city_business_path(business_obj.city, business_obj), class: "btn" do
+        - if business_obj.has_images?
+          = image_tag(business_obj.business_pics.last.image_url(:thumb).to_s)
+        - else
+          %span.glyphicon(class="#{business_obj.category_icon}")
+    .write-review-business-details
+      %h4
+        = link_to "#{business_obj.name}", city_business_path(business_obj.city, business_obj)
+      .price-and-type
+        #{business_obj.price_range} &#8226;
+        - business_obj.sub_categories.each do |sub_cat|
+          = link_to sub_cat.name, city_category_sub_category_path(business_obj.city, sub_cat.category, sub_cat)
+      .business-address
+        %p #{ business_obj.address }
+        %p #{ business_obj.city.format_city_state } #{ business_obj.zip_code }
+
+  .write-review-content
+    .write-review-content-header
+      %h5 Your Review
+
+    = form_for review_obj, url: review_obj.new_record? ? city_business_reviews_path(business_obj.city, business_obj) : city_business_review_path(business_obj.city, business_obj), html: { class: "business-rating" } do |f|
+      .write-review-content-box
+        .star-rating
+          = f.radio_button :star_rating, "1", id: "star-1", hidden: true
+          = f.label :star_rating, class: "star-box", for: "star-1" do
+            %span.glyphicon.glyphicon-star
+          = f.radio_button :star_rating, "2", id: "star-2", hidden: true
+          = f.label :star_rating, class: "star-box", for: "star-2" do
+            %span.glyphicon.glyphicon-star
+          = f.radio_button :star_rating, "3", id: "star-3", hidden: true
+          = f.label :star_rating, class: "star-box", for: "star-3" do
+            %span.glyphicon.glyphicon-star
+          = f.radio_button :star_rating, "4", id: "star-4", hidden: true
+          = f.label :star_rating, class: "star-box", for: "star-4" do
+            %span.glyphicon.glyphicon-star
+          = f.radio_button :star_rating, "5", id: "star-5", hidden: true
+          = f.label :star_rating, class: "star-box", for: "star-5" do
+            %span.glyphicon.glyphicon-star
+        %span.select-your-rating
+          Select your rating
+
+        = f.text_area :body, rows: "6", placeholder: "Write your review here! Your review helps others learn about great local businesses."
+
+      .review-form-submit
+        = f.submit "#{review_obj.new_record? ? 'Post Review' : 'Update Review'}", class: "btn write-review"
+        = link_to "Cancel", city_business_path(business_obj.city, business_obj)
+        - if !review_obj.new_record?
+          = link_to "Delete Review", city_business_review_path(business_obj.city, business_obj, review_obj), method: :delete, data: {confirm: "Are you sure?"}
+
+      %aside * You can always edit or remove reviews later.
+
+.write-review-sidebar
+  %h3 Reviews for #{ business_obj.name }
+  .reviews-sidebar-list
+    %ul
+      - business_obj.reviews.each do |review|
+        = render "sidebar_review_list_item", review: review

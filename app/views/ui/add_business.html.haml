@@ -1,0 +1,41 @@
+%section.ui-form-page
+  %h1 Add A Business
+
+  %form.form-group
+    %label(for="business-name") Business Name
+    %input(type="text" class="form-control" id="business-name" name="name" placeholder="Mel's Diner")
+    %label(for="address") Address
+    %input(type="text" class="form-control" id="address" name="address" placeholder="123 Main Street")
+    %label(for="zip") Zip Code
+    %input(type="text" class="form-control" id="zip" name="zip" placeholder="90026")
+    %label(for="city") City
+    %select(type="text" class="form-control" id="city" name="city")
+      %option(value="Los Angeles, CA") Los Angeles
+    %label(for="phone") Phone
+    %input(type="text" class="form-control" id="phone" name="phone" placeholder="(555) 555-5555")
+    %label(for="url") Web Address
+    %input(type="text" class="form-control" id="url" name="url" placeholder="http://www.companyaddress.com")
+    %label(for="category") Category
+    %select(type="text" class="form-control" id="category" name="category")
+      %option(value="Restaurants") Restaurants
+      %option(value="Nightlife") Nightlife
+      %option(value="Home Services") Home Services
+    %label(for="price_range") Price Range
+    %select(type="text" class="form-control" id="price_range" name="price_range")
+      %option(value="$") under $10
+      %option(value="$$") $11 - $30
+      %option(value="$$$") $31 - $60
+      %option(value="$$$$") above $61
+    %label(for="delivers") Delivery
+    %select(type="text" class="form-control" id="delivery" name="delivery")
+      %option(value="true") Yes
+      %option(value="false") No
+    %label(for="pickup") Pickup
+    %select(type="text" class="form-control" id="pickup" name="pickup")
+      %option(value="true") Yes
+      %option(value="false") No
+    %label(for="reservations") Reservations
+    %select(type="text" class="form-control" id="reservations" name="reservations")
+      %option(value="true") Yes
+      %option(value="false") No
+    %input(type="submit" class="btn write-review" value="Add Business")

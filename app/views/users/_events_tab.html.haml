@@ -1,0 +1,17 @@
+%h2 Upcoming Events
+.user-events
+  - if upcoming_events.size == 0
+    %span.empty-list #{current_user == user ? 'You don\'t' : user.name + ' doesn\'t' } have any upcoming events
+  %ul
+    - list.each_with_index do |event, index|
+      = render "event_list_item", event: event, business: event.business, index: user_index(index, count)
+  - if pages > 1
+    = render "pagination_bar", page: "events"
+%hr.line-break
+%h2 Past Events
+.user-events
+  - if past_events.size == 0
+    %span.empty-list #{current_user == user ? 'You don\'t' : user.name + ' doesn\'t' } have any past events
+  %ul
+    - past_events.take(10).each_with_index do |event, index|
+      = render "event_list_item", event: event, business: event.business, index: index + 1

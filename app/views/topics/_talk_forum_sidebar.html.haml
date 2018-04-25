@@ -1,0 +1,14 @@
+.talk-forum-sidebar
+  .new-topic-option
+    = link_to new_city_topic_path(@city), class: "btn write-review new-conversation-button" do
+      New Conversation
+  %h3 Talk
+  %ul.topic-categories
+    %li
+      = link_to "All Conversations", city_topics_path(@city), class: "#{ @page == 'all' ? 'topic-current-tab' : '' }", remote: true
+    - if logged_in?
+      %li
+        = link_to "My Conversations", city_topics_path(@city, page: "my"), class: "#{ @page == 'my' ? 'topic-current-tab' : '' }", remote: true
+    - @topic_categories.each do |tc|
+      %li
+        = link_to tc.name, city_topics_path(@city, page: tc.id), class: "#{ @page == tc.id.to_s ? 'topic-current-tab' : '' }", remote: true

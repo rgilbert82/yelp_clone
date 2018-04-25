@@ -1,0 +1,20 @@
+%li
+  .user-event
+    - if logged_in? && business.owner == current_user
+      %span.edit-review-link
+        = link_to "Delete Event", city_business_event_path(business.city, business, event), method: :delete, data: {confirm: "Are you sure?"}
+    .sidebar-reviewer-info
+      .business-icon
+        = link_to city_business_event_path(business.city, business, event), class: "btn" do
+          %span.glyphicon(class="#{business.category_icon}")
+      .business-details
+        %h5
+          %span #{index}.
+          = link_to "#{event.name}", city_business_event_path(business.city, business, event)
+        .event-content
+          .event-price
+            %span #{event.price}
+          .event-date
+            %span #{format_date_2(event.start_time)}
+          .business-list-address
+            %p #{business.city.format_city_state}

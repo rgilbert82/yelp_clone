@@ -1,0 +1,10 @@
+.select-business-hours
+  .business-form-field
+    = h.label :day, "Day"
+    = h.select :day, [["Monday", 1], ["Tuesday", 2], ["Wednesday", 3], ["Thursday", 4], ["Friday", 5], ["Saturday", 6], ["Sunday", 7]], {selected: index}, {class: "form-control day-select"}
+  .business-form-field
+    = h.label :opens_at, "Opens At"
+    = h.time_select :opens_at, {ampm: true, minute_step: 30, include_blank: true}, {class: 'form-control date_select time-select'}
+  .business-form-field.business-form-field-half
+    = h.label :closes_at, "Closes At"
+    = h.time_select :closes_at, {ampm: true, minute_step: 30, include_blank: true}, {class: 'form-control date_select time-select'}

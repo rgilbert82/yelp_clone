@@ -1,0 +1,16 @@
+%li
+  .user-friend-thumb
+    .friend-icon
+      = link_to "", class: "btn" do
+        %span.glyphicon.glyphicon-user
+    .friend-details
+      %h5
+        = link_to "#{person.name}", user_path(person)
+      %h6 #{ person.city.format_city_state }
+      .friend-thumb-stats
+        .friend-thumb-stat
+          %span.glyphicon.glyphicon-user
+          %span <b>#{person.all_friends.count}</b>
+        .friend-thumb-stat
+          %span.glyphicon.glyphicon-star-empty
+          %span <b>#{person.reviews.count}</b>

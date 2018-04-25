@@ -1,0 +1,28 @@
+:plain
+  var $review = $("body").find("li.review-list-item[data_id='#{@review.id}']");
+  var $count;
+  var $link;
+
+  switch ("#{@stat}") {
+    case "useful":
+      $count = $review.find("span.useful-count");
+      $link = $count.closest("a.btn");
+      $count.text("#{@review.useful_count}");
+      break;
+    case "funny":
+      $count = $review.find("span.funny-count");
+      $link = $count.closest("a.btn");
+      $count.text("#{@review.funny_count}");
+      break;
+    case "cool":
+      $count = $review.find("span.cool-count");
+      $link = $count.closest("a.btn");
+      $count.text("#{@review.cool_count}");
+      break;
+  }
+
+  if (#{@selected}) {
+    $link.addClass("review-stat-selected");
+  } else {
+    $link.removeClass("review-stat-selected");
+  }

@@ -1,0 +1,16 @@
+:plain
+  var $eventButton = $("span.attend-event-button ");
+
+  if ($eventButton.text() === "Attend This Event") {
+    $eventButton.text("You Are Attending This Event");
+  } else {
+    $eventButton.text("Attend This Event");
+  }
+
+var $attendCount = $("span.attending-user-count a");
+var $attendTab = $(".business-events-attending");
+var $userEvent = $(".user-main-content-events").find("li[data_id='#{@event.id}']");
+
+$attendCount.text(#{@event.users.count});
+$attendTab.html("#{j render partial: 'events/attending_tab', locals: { event: @event, business: @event.business, city: @event.business.city }}");
+$userEvent.remove();

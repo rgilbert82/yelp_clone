@@ -1,0 +1,12 @@
+:plain
+  var $bookmarkButton = $("span.bookmark-button");
+
+  if ($bookmarkButton.text() === "Bookmark") {
+    $bookmarkButton.text("Remove Bookmark");
+  } else {
+    $bookmarkButton.text("Bookmark");
+  }
+
+var $userBookmark = $(".user-main-content-bookmarks").find("li[data_id='#{@business.id}']");
+
+$userBookmark.remove();

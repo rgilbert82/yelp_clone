@@ -1,0 +1,44 @@
+.write-review-main-column
+  %h3 #{ business_obj.new_record? ? 'Create A New Business Page' : 'Edit Your Business'}
+  - if !business_obj.new_record?
+    = link_to "Business Details", details_city_business_path(@city, @business), class: "right-float-link"
+  .create-business-content
+    = form_for business_obj, url: business_obj.new_record? ? city_create_business_path(current_user.city) : city_business_path(business_obj.city, business_obj), html: { class: "business-rating" } do |f|
+      .business-form-field
+        = f.label :name, "Business Name"
+        = f.text_field :name, class: "form-control"
+      .business-form-field
+        = f.label :phone_number, "Phone Number"
+        = f.text_field :phone_number, class: "form-control", maxlength: "10"
+      .business-form-field
+        = f.label :address, "Address"
+        = f.text_field :address, class: "form-control"
+      .business-form-field
+        = f.label :zip_code, "Zip Code"
+        = f.text_field :zip_code, class: "form-control", maxlength: "5"
+      .business-form-field
+        = f.label :city_id, "City"
+        = f.select :city_id, set_cities.collect { |p| [ p.format_city_state, p.id ] }, {}, {class: "form-control"}
+
+      %h3.business-details Business Hours
+
+      - @week.each do |hours|
+        = f.fields_for :hours, hours do |h|
+          = render "hours_list_item", h: h, index: hours.day
+
+      %h3.business-details Business Details
+
+      .business-form-field
+        = f.label :sub_category_ids, "Categories"
+        = f.select :sub_category_ids, grouped_options_for_select(nested_categories_sub_categories, @business.sub_categories.pluck(:id)), {}, {multiple: true, class: "form-control"}
+      .business-form-field
+        = f.label :price_range, "Price Range"
+        = f.select :price_range, [["$ - low", "$"], ["$$ - moderate", "$$"], ["$$$ - high", "$$$"], ["$$$$ - expensive", "$$$$"]], {}, {class: "form-control"}
+
+      .review-form-submit
+        = f.submit "#{business_obj.new_record? ? 'Submit' : 'Update Business'}", class: "btn write-review"
+        = link_to "Cancel", user_path(current_user, page: "businesses")
+        - if !business_obj.new_record?
+          = link_to "Delete Business Page", city_business_path(business_obj.city, business_obj), method: :delete, data: {confirm: "Are you sure?"}
+
+      %aside * You can always edit or delete this business later.

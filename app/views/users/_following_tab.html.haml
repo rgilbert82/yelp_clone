@@ -1,0 +1,25 @@
+%h2 Following
+.user-friends
+  - if user.followings.size == 0
+    %span.empty-list #{current_user == user ? 'You aren\'t' : user.name + ' isn\'t' } following anyone
+  %ul
+    - user.followings.each do |friend|
+      %li
+        .user-friend-thumb
+          .friend-icon
+            = link_to user_path(friend), class: "btn" do
+              - unless friend.avatar.file.nil?
+                = image_tag(friend.avatar_url(:thumb).to_s)
+              - else
+                %span.glyphicon.glyphicon-user
+          .friend-details
+            %h5
+              = link_to "#{friend.name}", user_path(friend)
+            %h6 #{ friend.city.format_city_state }
+            .friend-thumb-stats
+              .friend-thumb-stat
+                %span.glyphicon.glyphicon-user
+                %span <b>#{friend.all_friends.count}</b>
+              .friend-thumb-stat
+                %span.glyphicon.glyphicon-star-empty
+                %span <b>#{friend.reviews.count}</b>

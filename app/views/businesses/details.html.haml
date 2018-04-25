@@ -1,0 +1,18 @@
+%section.ui-write-review
+  = render 'shared/messages'
+  
+  .write-review-main-column
+    %h3 Details for #{@business.name}
+    .create-business-content
+      = form_for @business, url: write_details_city_business_path(@city, @business), method: "post", html: { class: "business-rating" } do |f|
+        - @category_options.each do |co|
+          - $businessOptionObject = set_business_option(co)
+          = f.fields_for :business_options, $businessOptionObject do |bo|
+            = bo.hidden_field :category_option_id
+            = bo.hidden_field :business_id
+            .business-form-field
+              = bo.label :option, co.name
+              = bo.select :option, co.options.collect { |o| o }, {include_blank: true, selected: $businessOptionObject.option}, {class: "form-control"}
+        .review-form-submit
+          = f.submit "Submit", class: "btn write-review"
+          = link_to "Cancel", city_business_path(@city, @business)

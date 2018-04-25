@@ -1,0 +1,46 @@
+%li(class="review-list-item" data_id="#{review.id}")
+  .review-wrapper
+    - if logged_in? && user == current_user
+      = link_to "Edit review", edit_city_business_review_path(business.city, business, review), class: "edit-review-link"
+    .reviewer-info
+      .reviewer-icon
+        = link_to user_path(user), class: "btn" do
+          - unless user.avatar.file.nil?
+            = image_tag(user.avatar_url(:thumb).to_s)
+          - else
+            %span.glyphicon.glyphicon-user
+      .reviewer-details
+        %h5
+          = link_to "#{user.name}", user_path(user)
+        %span <strong>#{user.reviews.count}</strong> #{user.reviews.count == 1 ? "review" : "reviews"}
+    .review-content
+      / Declare Variables
+      - $rating = review.star_rating
+      - $color = star_color($rating)
+      .star-rating
+        .star-box(class="#{ $rating > 0 ? $color : '' }")
+          %span.glyphicon.glyphicon-star
+        .star-box(class="#{ $rating >= 2 ? $color : '' }")
+          %span.glyphicon.glyphicon-star
+        .star-box(class="#{ $rating >= 3 ? $color : '' }")
+          %span.glyphicon.glyphicon-star
+        .star-box(class="#{ $rating >= 4 ? $color : '' }")
+          %span.glyphicon.glyphicon-star
+        .star-box(class="#{ $rating == 5 ? $color : '' }")
+          %span.glyphicon.glyphicon-star
+      .review-date
+        %span #{format_date_2(review.created_at)}
+      .review-text
+        %p #{review.body}
+      .review-footer
+        %h5 Was this review ...?
+        .review-footer-buttons
+          = link_to review_stats_path(review, stat: "useful"), remote: true, method: "post", class: "btn btn-default #{review.user_voted_useful?(current_user) ? 'review-stat-selected' : ''}" do
+            Useful
+            %span.useful-count #{review.useful_count}
+          = link_to review_stats_path(review, stat: "funny"), remote: true, method: "post", class: "btn btn-default #{review.user_voted_funny?(current_user) ? 'review-stat-selected' : ''}" do
+            Funny
+            %span.funny-count #{review.funny_count}
+          = link_to review_stats_path(review, stat: "cool"), remote: true, method: "post", class: "btn btn-default #{review.user_voted_cool?(current_user) ? 'review-stat-selected' : ''}" do
+            Cool
+            %span.cool-count #{review.cool_count}

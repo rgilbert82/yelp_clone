@@ -1,0 +1,44 @@
+.section-wrapper
+  = render "conversations_header"
+
+.section-wrapper
+  %section.conversations-page
+    - if @page == "trash" && @conversations.count == 0
+      .no-messages-message
+        %p.empty-list Your trash is empty
+    - elsif @conversations.count == 0
+      .no-messages-message
+        %p.empty-list Want to communicate on a more personal level with your friends? Send a message now!
+        = link_to "Compose", new_conversation_path, class: "btn btn-default"
+    - else
+      .conversations-content
+        = form_tag trash_conversations_path, method: "post" do
+          - if @page == 'inbox' || @page == 'trash'
+            .delete-conversation-submit.delete-conversation-submit-top
+              = link_to "Check all", "#", class: 'check-all'
+              %span
+                |
+              = link_to "Uncheck all", "#", class: 'uncheck-all'
+              = submit_tag "#{@page == 'inbox' ? 'Delete' : 'Move To Inbox'}", class: 'btn btn-default'
+
+          %ul.conversations-list
+            - if @page == "sent"
+              - @conversations.each do |message|
+                = render "conversation_list_item", conversation: message.conversation, message_to_display: message
+            - elsif @page == "trash"
+              - @conversations.each do |conversation|
+                = render "conversation_list_item", conversation: conversation, message_to_display: conversation.messages.last
+            - else
+              - @conversations.each do |conversation|
+                = render "conversation_list_item", conversation: conversation, message_to_display: conversation.messages.last
+
+          - if @pages > 1
+            = render "pagination_bar"
+
+          - if @page == 'inbox' || @page == 'trash'
+            .delete-conversation-submit.delete-conversation-submit-bottom
+              = link_to "Check all", "#", class: 'check-all'
+              %span
+                |
+              = link_to "Uncheck all", "#", class: 'uncheck-all'
+              = submit_tag "#{@page == 'inbox' ? 'Delete' : 'Move To Inbox'}", class: 'btn btn-default'

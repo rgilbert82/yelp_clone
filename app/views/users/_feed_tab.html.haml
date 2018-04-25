@@ -1,0 +1,10 @@
+%h2 Your Feed
+.user-reviews
+  - if user.following_reviews.size == 0
+    %span.empty-list Your feed is empty. Go follow some people!
+  %ul
+    - list.each do |review|
+      = render "review_list_item", review: review, business: review.business, feed: true
+
+  - if pages > 1
+    = render "pagination_bar", page: "feed"

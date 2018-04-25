@@ -1,0 +1,23 @@
+%ul
+  - if logged_in? && current_user != user
+    %li
+      - if current_user.all_friends.include?(user)
+        %span.glyphicon.glyphicon-minus
+        = link_to "Unfriend #{user.name}", friend_user_path, remote: true, method: "post", class: "interact-with-user-link"
+      - else
+        %span.glyphicon.glyphicon-plus
+        = link_to "Add friend", friend_user_path, remote: true, method: "post" , class: "interact-with-user-link"
+    %li
+      - if current_user.followings.include?(user)
+        %span.glyphicon.glyphicon-user
+        = link_to "Unfollow #{user.name}", follow_user_path, remote: true, method: "post", class: "interact-with-user-link"
+      - else
+        %span.glyphicon.glyphicon-user
+        = link_to "Follow #{user.name}", follow_user_path, remote: true, method: "post", class: "interact-with-user-link"
+    %li
+      %span.glyphicon.glyphicon-comment
+      = link_to "Send Message", new_conversation_path(to: user.id), class: "interact-with-user-link"
+  - elsif current_user == user
+    %li
+      %span.glyphicon.glyphicon-pencil
+      = link_to "Edit Your Profile", edit_user_path(user), class: "interact-with-user-link"

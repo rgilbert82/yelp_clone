@@ -1,0 +1,23 @@
+%li.message-list-item
+  .user-icon
+    = link_to user_path(user), class: "btn" do
+      - unless user.avatar.file.nil?
+        = image_tag(user.avatar_url(:thumb).to_s)
+      - else
+        %span.glyphicon.glyphicon-user
+  .message-user-info
+    %h4
+      = link_to user.name, user_path(user)
+    %h6 #{user.city.format_city_state}
+    .conversation-thumb-stats
+      .conversation-thumb-stat
+        %span.glyphicon.glyphicon-user
+        %span <b>#{user.all_friends.count}</b>
+      .conversation-thumb-stat
+        %span.glyphicon.glyphicon-star-empty
+        %span <b>#{user.reviews.count}</b>
+  .message-info
+    %p #{message.body}
+  .message-time
+    %small #{format_date(message.created_at)}
+    %small #{format_time(message.created_at)}

@@ -1,0 +1,9 @@
+.choose-city-topic-bar
+  = render 'shared/messages'
+
+  .topic-bar-wrapper
+    %h3 #{city_name ? city_name : category}
+    %ul
+      - @cities.each do |city|
+        %li.city-selector
+          = link_to "#{city.format_city_state}", city_topics_path(city)

@@ -1,0 +1,36 @@
+.section-wrapper
+  .choose-city-bar
+    = render 'shared/messages'
+
+    %h3 <small>Search results for:</small> '#{@search_term}' #{@location_id != 0 ? "<small>near</small> '".html_safe + City.find(@location_id).name + "'" : ""}
+    %hr.line-break
+
+.section-wrapper
+  %section.ui-index
+    %ul.businesses-list
+      - if @businesses.size == 0
+        %p.empty-list-2 Your search returned no results.
+        %p.empty-list-2 Sorry.
+      - else
+        - @businesses.each_with_index do |business, index|
+          = render "shared/business_list_item", index: business_index(index, @count), business: business
+
+    - if @pages > 1
+      .pagination-bar
+        .current-page Page #{@count} of #{@pages}
+        .page-links
+          - if @count > 1
+            = link_to "prev", search_path(find: @search_term, location: @location_id, count: @count - 1), remote: true
+
+          - 1.upto(@pages) do |n|
+            - if @count == n
+              %span #{n}
+            - else
+              %span
+                = link_to n, search_path(find: @search_term, location: @location_id, count: n), remote: true
+
+          - if @count < @pages
+            %span
+              = link_to "next", search_path(find: @search_term, location: @location_id, count: @count + 1), remote: true
+          - else
+            %span.grayed-link next

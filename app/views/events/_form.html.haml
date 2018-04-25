@@ -1,0 +1,35 @@
+.write-review-main-column
+  %h3 #{ event_obj.new_record? ? 'Create A New Event' : 'Edit Your Event'}
+  .write-review-business-header
+    .business-list-icon
+      = link_to city_business_path(business_obj.city, business_obj), class: "btn" do
+        %span.glyphicon(class="#{business_obj.category_icon}")
+    .write-review-business-details
+      %h4
+        = link_to "#{business_obj.name}", city_business_path(business_obj.city, business_obj)
+      .price-and-type
+        #{business_obj.price_range} &#8226;
+        - business_obj.sub_categories.each do |sub_cat|
+          = link_to sub_cat.name, city_category_sub_category_path(business_obj.city, sub_cat.category, sub_cat)
+      .business-address
+        %p #{ business_obj.address }
+        %p #{ business_obj.city.format_city_state } #{ business_obj.zip_code }
+
+  .create-event-content
+    .create-event-content-header
+      %h5 Event Details
+
+    = form_for event_obj, url: event_obj.new_record? ? city_business_events_path(business_obj.city, business_obj) : city_business_event_path(business_obj.city, business_obj), html: { class: "business-rating" } do |f|
+      = f.text_field :name, class: "form-control", placeholder: "Event Name"
+      = f.text_field :price, class: "form-control", placeholder: "Price"
+      = f.text_area :description, rows: "4", class: "form-control", placeholder: "Describe the event here!"
+      .form-choose-date
+        = f.datetime_select :start_time, {ampm: true, minute_step: 30, start_year: Date.today.year}, {class: 'form-control date_select'}
+
+      .review-form-submit
+        = f.submit "#{event_obj.new_record? ? 'Create Event' : 'Update Event'}", class: "btn write-review"
+        = link_to "Cancel", city_business_path(business_obj.city, business_obj)
+        - if !event_obj.new_record?
+          = link_to "Delete Event", city_business_event_path(business_obj.city, business_obj, event_obj), method: :delete, data: {confirm: "Are you sure?"}
+
+      %aside * You can always edit or remove events later.

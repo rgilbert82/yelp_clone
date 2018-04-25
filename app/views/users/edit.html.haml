@@ -1,0 +1,47 @@
+%section.ui-form-page
+  = render 'shared/messages'
+  
+  %h2 Edit Your Profile
+
+  = form_for @user, html: {class: "form-group"} do |f|
+    .user-form-field
+      = f.label :name, "Name"
+      = f.text_field :name, class: "form-control"
+    .user-form-field
+      = f.label :email, "Email"
+      = f.email_field :email, class: "form-control"
+    .user-form-field
+      = f.label :password, "Password"
+      = f.password_field :password, class: "form-control"
+    .user-form-field
+      = f.label :city_id, "City"
+      = f.select :city_id, set_cities.collect { |p| [ p.format_city_state, p.id ] }, {}, {class: "form-control"}
+
+    %h2 Other options
+    .user-form-field
+      = f.label :gender, "Gender"
+      = f.select :gender, [["Male", "Male"], ["Female", "Female"], ["Other", "Other"]], {}, {class: "form-control"}
+    .user-form-field
+      = f.label :tagline, "My Headline"
+      = f.text_field :tagline, class: "form-control"
+    .user-form-field
+      = f.label :i_love, "I love..."
+      = f.text_field :i_love, class: "form-control"
+    .user-form-field
+      = f.label :hometown, "My hometown..."
+      = f.text_field :hometown, class: "form-control"
+    .user-form-field
+      = f.label :website, "My blog or website..."
+      = f.text_field :website, class: "form-control"
+    .user-form-field
+      = f.label :when_im_not_reviewing, "When I'm not reviewing..."
+      = f.text_field :when_im_not_reviewing, class: "form-control"
+
+    %h2 Avatar
+    .user-form-field
+      = f.label :name, "Upload A Picture"
+      = f.file_field :avatar, class: "form-control"
+
+    .review-form-submit
+      = f.submit "Update", class: "btn write-review"
+      = link_to "Cancel", user_path(@user)

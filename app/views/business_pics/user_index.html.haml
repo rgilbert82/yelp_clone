@@ -1,0 +1,19 @@
+.section-wrapper
+  %section.ui-photos-gallery
+    .user-photos-header
+      - $pics_count = @user.business_pics.count
+      %h4
+        = link_to @user.name, user_path(@user)
+        %span.glyphicon.glyphicon-chevron-right
+        Business Photos
+      %h3 #{$pics_count} photo#{$pics_count == 1 ? '' : 's'} by #{@user.name}
+
+    - unless @user.has_images?
+      .empty-list-2 #{current_user == @user ? 'You haven\'t' : @user.name + ' hasn\'t'} uploaded any pictures.
+    - else
+      .picture-thumbnail-gallery
+        - @user.business_pics.each do |pic|
+          = link_to city_business_photo_path(pic.business.city, pic.business, pic, user_id: @user.id), remote: true, data_id: pic.id do
+            = image_tag(pic.image_url(:thumb).to_s)
+
+.photo-modal

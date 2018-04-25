@@ -1,0 +1,16 @@
+%section.ui-form-page
+  = render 'shared/messages'
+  
+  %h2 Sign Up
+
+  = form_for @user, html: {class: "form-group"} do |f|
+    = f.text_field :name, class: "form-control", placeholder: "Name"
+    = f.email_field :email, class: "form-control", placeholder: "Email"
+    = f.password_field :password, class: "form-control", placeholder: "Password"
+    = f.label :city_id, "City"
+    = f.select :city_id, set_cities.collect { |p| [ p.format_city_state, p.id ] }, {}, {class: "form-control"}
+    = f.submit "Submit", class: "btn write-review"
+
+  %aside
+    Already registered?
+    = link_to "Log In", login_path

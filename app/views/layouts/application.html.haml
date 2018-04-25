@@ -1,0 +1,147 @@
+!!! 5
+%html(lang="en-US")
+  %head
+    %title Yelp Clone!
+    %meta(charset="UTF-8")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    = csrf_meta_tag
+    = favicon_link_tag "favicon.ico"
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    %script(src="https://js.stripe.com/v2/")
+  %body
+    %header
+      .navbar-wrapper
+        .navbar-top
+          .navbar-logo.navbar-item.navbar-top-item
+            = link_to "Reviews!", root_path
+            %span(class="glyphicon glyphicon-leaf")
+          .search-form.navbar-item.navbar-top-item
+            = form_tag search_path, method: "get" do
+              .input-group.double-input-bar.navbar-item
+                .double-input-bar-text-fields
+                  .double-input.navbar-item
+                    = label_tag :find, "Find"
+                    = text_field_tag :find
+                  %span.vertical-divider
+                  .double-input.navbar-item
+                    = label_tag :location, "Near"
+                    = select_tag :location, options_for_select(set_cities.collect { |p| [ p.format_city_state, p.id ] }), {include_blank: true}
+                .navbar-item.double-input-bar-submit
+                  = button_tag "", type: "submit", name: nil, class: "glyphicon glyphicon-search search-bar-button"
+
+          - if logged_in?
+            .nav-icons.navbar-item.navbar-top-item
+              = link_to root_path, class: "btn nav-icon navbar-logo-small" do
+                %span.glyphicon.glyphicon-leaf
+              = link_to conversations_path, class: "btn nav-icon" do
+                %span.glyphicon.glyphicon-comment
+              = link_to user_path(current_user), class: "btn nav-icon" do
+                %span.glyphicon.glyphicon-bell
+              .btn-group
+                %button(type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+                  %span(class="glyphicon glyphicon-user")
+                  %span(class="caret")
+                %ul(class="dropdown-menu navbar-dropdown")
+                  %li
+                    = link_to "About Me", user_path(current_user)
+                  %li
+                    = link_to "Mailbox", conversations_path
+                  %li
+                    = link_to current_user.admin? ? "Manage Users" : "Find Friends", users_path
+                  %li
+                    = link_to "Account Settings", edit_user_path(current_user)
+                  %li
+                    = link_to "Donate", donate_path
+                  %li(role="separator" class="divider")
+                  %li
+                    = link_to "Log Out", logout_path
+
+          - else
+            .login-buttons
+              = link_to login_path do
+                %button(class="btn btn-red") Log In
+              = link_to signup_path do
+                %button(class="btn btn-red") Sign Up
+
+        .navbar-bottom
+          %ul(class="navbar-bottom-links")
+            - @categories.each do |category|
+              %li.navbar-item.navbar-item-link
+                = link_to @city ? city_category_path(@city, category) : category_path(category) do
+                  %span(class="glyphicon #{category.icon_class}")
+                  #{category.name}
+            %li.navbar-item &#8226;
+            %li.navbar-item.navbar-item-link.navbar-item-link-removeable
+              = link_to "Write A Review", @city ? city_businesses_path(@city, page: "write-review") : root_path(page: "write-review")
+            %li.navbar-item.navbar-item-link.navbar-item-link-removeable.navbar-item-link-home
+              = link_to "Home", root_path
+            %li.navbar-item.navbar-item-link.navbar-item-link-removeable
+              = link_to "Events", @city ? city_events_path(@city) : events_path
+            %li.navbar-item.navbar-item-link
+              = link_to "Talk", @city ? city_topics_path(@city) : topics_path
+
+    %section.content.clearfix
+      -# = render 'shared/messages'
+      = yield
+
+    %footer
+      .footer-wrapper
+        .footer-links
+          .footer-links-col
+            %h4 About
+            %ul
+              %li
+                %a(href="#") About Reviews!
+              %li
+                %a(href="#") Careers
+              %li
+                %a(href="#") Press
+              %li
+                %a(href="#") Content Guidelines
+              %li
+                %a(href="#") Terms of Service
+              %li
+                %a(href="#") Privacy Policy
+          .footer-links-col
+            %h4 Discover
+            %ul
+              %li
+                %a(href="#") The Local Reviews!
+              %li
+                %a(href="#") Reviews! Blog
+              %li
+                %a(href="#") Support
+              %li
+                %a(href="#") Reviews! Mobile
+              %li
+                %a(href="#") Developers
+              %li
+                %a(href="#") RSS
+          .footer-links-col
+            %h4 Reviews! For Business Owners
+            %ul
+              %li
+                %a(href="#") Claim Your Business Page
+              %li
+                %a(href="#") Advertise on Reviews!
+              %li
+                %a(href="#") Reservations
+              %li
+                %a(href="#") Business Support
+              %li
+                %a(href="#") Reviews! Blog For Business Owners
+          .footer-links-col
+            %h4 Languages
+            %select.form-control
+              %option English
+            %h4 Countries
+            %select.form-control
+              %option USA
+
+        %h5.footer-copyright &copy 2017 Reviews!
+
+      .footer-message-modal
+        .dark-layer
+        .footer-message
+          %h3 The footer links are purely decorative.

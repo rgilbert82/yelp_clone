@@ -1,0 +1,163 @@
+%section.user-gray-header
+  .user-profile-header
+    .user-icon
+      %span.glyphicon.glyphicon-user
+    .user-info
+      %h1 John Doe
+      %h4 Los Angeles, CA
+      .user-header-stats
+        .user-header-stat
+          %span.glyphicon.glyphicon-user
+          %span <b>15</b> Friends
+        .user-header-stat
+          %span.glyphicon.glyphicon-star-empty
+          %span <b>3</b> Reviews
+        %p.user-profile-tagline
+          "Hi. Welcome to my profile!"
+    .interact-with-user
+      %ul
+        %li
+          %span.glyphicon.glyphicon-plus
+          = link_to "Add friend", class: "interact-with-user-link"
+        %li
+          %span.glyphicon.glyphicon-user
+          = link_to "Follow John Doe", class: "interact-with-user-link"
+        %li
+          %span.glyphicon.glyphicon-comment
+          = link_to "Send Message", class: "interact-with-user-link"
+
+%section.ui-user-profile
+  .user-left-sidebar
+    %h2 John Doe's Profile
+    %ul
+      %li
+        = link_to "Profile Overview", "", class: "user-current-tab"
+      %li
+        = link_to "Friends"
+      %li
+        = link_to "Reviews"
+      %li
+        = link_to "Bookmarks"
+
+  .user-main-content>
+    %h2 Reviews
+    .user-reviews
+      %ul
+        %li
+          .user-review
+            .sidebar-reviewer-info
+              .business-icon
+                = link_to "", class: "btn" do
+                  %span.glyphicon.glyphicon-cutlery
+              .business-details
+                %h5
+                  = link_to "In N Out Burger"
+                .price-and-type
+                  $$ &#8226;
+                  = link_to "Hamburgers"
+                .business-list-address
+                  %p 707 S Grand Ave
+                  %p Los Angeles, CA 90017
+            .review-content
+              .star-rating
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box
+                  %span.glyphicon.glyphicon-star
+                .star-box
+                  %span.glyphicon.glyphicon-star
+              .review-date
+                %span 3/10/17
+              .review-text
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              .review-footer
+                %h5 Was this review ...?
+                .review-footer-buttons
+                  %button(type="button" class="btn btn-default")
+                    Useful
+                    %span 1
+                  %button(type="button" class="btn btn-default")
+                    Funny
+                  %button(type="button" class="btn btn-default")
+                    Cool
+        %li
+          .user-review
+            .sidebar-reviewer-info
+              .business-icon
+                = link_to "", class: "btn" do
+                  %span.glyphicon.glyphicon-cutlery
+              .business-details
+                %h5
+                  = link_to "Fatburger"
+                .price-and-type
+                  $$ &#8226;
+                  = link_to "Hamburgers"
+                .business-list-address
+                  %p 707 S Grand Ave
+                  %p Los Angeles, CA 90017
+            .review-content
+              .star-rating
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box
+                  %span.glyphicon.glyphicon-star
+                .star-box
+                  %span.glyphicon.glyphicon-star
+              .review-date
+                %span 3/10/17
+              .review-text
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              .review-footer
+                %h5 Was this review ...?
+                .review-footer-buttons
+                  %button(type="button" class="btn btn-default")
+                    Useful
+                    %span 1
+                  %button(type="button" class="btn btn-default")
+                    Funny
+                  %button(type="button" class="btn btn-default")
+                    Cool
+
+  .user-right-sidebar
+    %h2 About John Doe
+    .user-rating-sidebar-stats
+      %h3 Rating Distribution
+      %ul
+        %li
+          %span.glyphicon.glyphicon-star-empty
+          %span <b>5 Stars</b> 3
+        %li
+          %span.glyphicon.glyphicon-star-empty
+          %span <b>4 Stars</b> 2
+        %li
+          %span.glyphicon.glyphicon-star-empty
+          %span <b>3 Stars</b> 1
+        %li
+          %span.glyphicon.glyphicon-star-empty
+          %span <b>2 Stars</b> 0
+        %li
+          %span.glyphicon.glyphicon-star-empty
+          %span <b>1 Stars</b> 1
+    .user-rating-sidebar-stats
+      %h3 Stats
+      %ul
+        %li
+          %span.glyphicon.glyphicon-bookmark
+          %span <b>Bookmarks</b> 4
+        %li
+          %span.glyphicon.glyphicon-user
+          %span <b>Followers</b> 2
+    .user-rating-sidebar-stats
+      %h3 Location
+      %h4 Los Angeles, CA
+    .user-rating-sidebar-stats
+      %h3 Reviewing Since
+      %h4 February 2017

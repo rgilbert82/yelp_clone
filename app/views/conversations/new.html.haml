@@ -1,0 +1,31 @@
+%section.ui-write-review
+  = render 'shared/messages'
+  .write-review-main-column
+    %h3 New Message
+    - if @friends.size == 0
+      .go-make-friends
+        %p.empty-list-2 Looks like you don't have any friends to send a message to.
+        %p.empty-list-2
+          Go out and
+          = link_to "make some!", users_path
+    - else
+      .create-business-content
+        = form_for @conversation, url: @to ? conversations_path(to: @to) : conversations_path, html: { class: "business-rating" } do |f|
+          .business-form-field
+            - if @to
+              = f.label :recipient_id, "To: #{@recipient.name} "
+              = f.hidden_field :recipient_id, value: @recipient.id
+            -else
+              = f.label :recipient_id, "To"
+              = f.select :recipient_id, @friends.collect { |f| [ f.name, f.id ] }, {}, {class: "form-control"}
+          .business-form-field
+            = f.label :title, "Subject"
+            = f.text_field :title, class: "form-control"
+          = f.fields_for :message do |m|
+            .business-form-field
+              = m.label :body, "Message"
+              = m.text_area :body, rows: "4", class: "form-control"
+
+          .review-form-submit
+            = f.submit "Send Message", class: "btn write-review"
+            = link_to "Cancel", conversations_path

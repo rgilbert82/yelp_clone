@@ -1,0 +1,28 @@
+.section-wrapper
+  = render "city_list_header", city_name: @city.name, category: "Talk!"
+
+.section-wrapper
+  %section.talk-forum
+    = render "talk_forum_sidebar"
+
+    .talk-forum-content
+      %ul.topics-list
+        - if @topics.empty?
+          %p.empty-list-2 There are no conversations here. Go start one!
+        - else
+          - @topics.each do |topic|
+            = render "topic_list_item", topic: topic, last_post: topic.posts.last
+
+      - if @pages > 1
+        .pagination-bar
+          .current-page
+            - if @count > 1
+              = link_to "prev", city_topics_path(@city, page: @page, count: @count - 1), remote: true
+            - else
+              %span.grayed-link prev
+          .page-links
+            - if @count < @pages
+              %span
+                = link_to "next", city_topics_path(@city, page: @page, count: @count + 1), remote: true
+            - else
+              %span.grayed-link next

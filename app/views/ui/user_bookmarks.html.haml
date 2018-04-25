@@ -1,0 +1,123 @@
+%section.user-gray-header
+  .user-profile-header
+    .user-icon
+      %span.glyphicon.glyphicon-user
+    .user-info
+      %h1 John Doe
+      %h4 Los Angeles, CA
+      .user-header-stats
+        .user-header-stat
+          %span.glyphicon.glyphicon-user
+          %span <b>15</b> Friends
+        .user-header-stat
+          %span.glyphicon.glyphicon-star-empty
+          %span <b>3</b> Reviews
+        %p.user-profile-tagline
+          "Hi. Welcome to my profile!"
+    .interact-with-user
+      %ul
+        %li
+          %span.glyphicon.glyphicon-plus
+          = link_to "Add friend", class: "interact-with-user-link"
+        %li
+          %span.glyphicon.glyphicon-user
+          = link_to "Follow John Doe", class: "interact-with-user-link"
+        %li
+          %span.glyphicon.glyphicon-comment
+          = link_to "Send Message", class: "interact-with-user-link"
+
+%section.ui-user-profile
+  .user-left-sidebar
+    %h2 John Doe's Profile
+    %ul
+      %li
+        = link_to "Profile Overview"
+      %li
+        = link_to "Friends"
+      %li
+        = link_to "Reviews"
+      %li
+        = link_to "Bookmarks", "", class: "user-current-tab"
+
+  .user-main-content-wide
+    %h2 Bookmarks
+    .user-bookmarks
+      %ul
+        %li
+          .user-bookmark
+            .sidebar-reviewer-info
+              .business-icon
+                = link_to "", class: "btn" do
+                  %span.glyphicon.glyphicon-cutlery
+              .business-details
+                %h5
+                  %span 1.
+                  = link_to "In N Out Burger"
+                .review-content
+                  .star-rating
+                    .star-box.star-box-starred
+                      %span.glyphicon.glyphicon-star
+                    .star-box.star-box-starred
+                      %span.glyphicon.glyphicon-star
+                    .star-box.star-box-starred
+                      %span.glyphicon.glyphicon-star
+                    .star-box
+                      %span.glyphicon.glyphicon-star
+                    .star-box
+                      %span.glyphicon.glyphicon-star
+                  .review-date
+                    %span 3/11/17
+                  .business-list-address
+                    %p Los Angeles, CA
+        %li
+          .user-bookmark
+            .sidebar-reviewer-info
+              .business-icon
+                = link_to "", class: "btn" do
+                  %span.glyphicon.glyphicon-cutlery
+              .business-details
+                %h5
+                  %span 2.
+                  = link_to "Fatburger"
+                .review-content
+                  .star-rating
+                    .star-box.star-box-starred
+                      %span.glyphicon.glyphicon-star
+                    .star-box.star-box-starred
+                      %span.glyphicon.glyphicon-star
+                    .star-box.star-box-starred
+                      %span.glyphicon.glyphicon-star
+                    .star-box.star-box-starred
+                      %span.glyphicon.glyphicon-star
+                    .star-box
+                      %span.glyphicon.glyphicon-star
+                  .review-date
+                    %span 3/10/17
+                  .business-list-address
+                    %p Los Angeles, CA
+        %li
+          .user-bookmark
+            .sidebar-reviewer-info
+              .business-icon
+                = link_to "", class: "btn" do
+                  %span.glyphicon.glyphicon-cutlery
+              .business-details
+                %h5
+                  %span 3.
+                  = link_to "Umami Burger"
+                .review-content
+                  .star-rating
+                    .star-box.star-box-starred
+                      %span.glyphicon.glyphicon-star
+                    .star-box.star-box-starred
+                      %span.glyphicon.glyphicon-star
+                    .star-box.star-box-starred
+                      %span.glyphicon.glyphicon-star
+                    .star-box
+                      %span.glyphicon.glyphicon-star
+                    .star-box
+                      %span.glyphicon.glyphicon-star
+                  .review-date
+                    %span 3/09/17
+                  .business-list-address
+                    %p Los Angeles, CA

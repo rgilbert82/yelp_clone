@@ -1,0 +1,7 @@
+var $wrapper = $('.interact-with-user');
+var $followersCount = $(".user-followers-count");
+var $followersPage = $(".user-main-content-followers");
+
+$wrapper.html("#{j render partial: 'users/interact_with_user', locals: { user: @other_user }}");
+$followersCount.html("<b>Followers</b> #{ @other_user.followers.count }");
+$followersPage.html("#{j render partial: 'users/followers_tab', locals: { user: @other_user }}");

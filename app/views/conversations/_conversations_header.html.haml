@@ -1,0 +1,11 @@
+.conversations-header-bar
+  = render 'shared/messages'
+
+  %h3 Messages
+  .conversations-bar-wrapper
+    = link_to "Inbox #{@unread_conversations_count > 0 ? '(' + @unread_conversations_count.to_s + ')' : ''}", conversations_path, class: "conversations-header-tab #{ @page == 'inbox' ? 'selected-tab' : '' }", remote: true
+    = link_to "Sent", conversations_path(page: "sent"), class: "conversations-header-tab #{ @page == 'sent' ? 'selected-tab' : '' }", remote: true
+    = link_to "Trash", conversations_path(page: "trash"), class: "conversations-header-tab #{ @page == 'trash' ? 'selected-tab' : '' }", remote: true
+    .new-conversation-link
+      = link_to "Write New Message", new_conversation_path, class: "btn write-review"
+  %hr.line-break

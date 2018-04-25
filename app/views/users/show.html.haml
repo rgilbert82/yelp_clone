@@ -1,0 +1,31 @@
+%section.user-gray-header
+  .section-wrapper
+    = render 'shared/messages'
+
+    .user-profile-header
+      .user-icon
+        - if !@user.avatar.file.nil?
+          = image_tag(@user.avatar_url.to_s)
+        - elsif logged_in? && current_user == @user
+          %span.glyphicon.glyphicon-user.your-profile-page-icon
+        - else
+          %span.glyphicon.glyphicon-user
+      .user-info
+        %h1 #{@user.name}
+        %h4 #{@user.city.format_city_state}
+        .user-header-stats
+          .user-header-stat
+            %span.glyphicon.glyphicon-user
+            %span.user-friends-count <b>#{@user.all_friends.count}</b> #{@user.all_friends.count == 1 ? "Friend" : "Friends"}
+          .user-header-stat
+            %span.glyphicon.glyphicon-star-empty
+            %span <b>#{@user.reviews.count}</b> #{@user.reviews.count == 1 ? "Review" : "Reviews"}
+          %p.user-profile-tagline
+            - if @user.tagline
+              #{ @user.tagline }
+      .interact-with-user
+        = render "interact_with_user", user: @user
+
+.section-wrapper
+  %section.ui-user-profile
+    = render "user_content"

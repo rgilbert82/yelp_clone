@@ -1,0 +1,24 @@
+%li.conversation-list-item(class="#{ conversation.has_unread_messages?(current_user) ? 'unread-message' : '' }")
+  - if @page == 'inbox' || @page == 'trash'
+    .conversation-list-item-checkbox
+      = check_box_tag '', conversation.id, false, name: "conversation_check[]", class: "conversation-check"
+  .user-icon-small
+    = link_to user_path(conversation.with_whom(current_user)), class: "btn" do
+      - unless conversation.with_whom(current_user).avatar.file.nil?
+        = image_tag(conversation.with_whom(current_user).avatar_url(:thumb).to_s)
+      - else
+        %span.glyphicon.glyphicon-user
+  .conversation-summary-sender
+    %h5
+      = link_to conversation.with_whom(current_user).name, user_path(conversation.with_whom(current_user))
+  .conversation-summary-message
+    - if @page == 'sent' && conversation.messages.first != message_to_display
+      %h5
+        = link_to "Re: #{conversation.title}", conversation_path(conversation)
+    - else
+      %h5
+        = link_to conversation.title, conversation_path(conversation)
+    %small #{show_limited_text(message_to_display.body)}
+  .number-of-replies
+    %span #{conversation.messages.count - 1} #{conversation.messages.count == 2 ? 'reply' : 'replies' }
+    %small #{how_long_ago(message_to_display.created_at)}

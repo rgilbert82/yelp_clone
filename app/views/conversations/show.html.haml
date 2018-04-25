@@ -1,0 +1,33 @@
+.section-wrapper
+  .message-header-bar
+    = render 'shared/messages'
+
+    .message-header
+      %h3 #{@conversation.title}
+      %h6
+        Between
+        = link_to @conversation.sender.name, user_path(@conversation.sender)
+        and
+        = link_to @conversation.recipient.name, user_path(@conversation.recipient)
+    .back-to-inbox
+      - if @conversation.is_in_trash?(current_user)
+        = link_to "Back to your trash", conversations_path(page: 'trash')
+      - else
+        = link_to "Back to your inbox", conversations_path
+
+.section-wrapper
+  %section.conversation-page
+    .conversations-content
+      %ul.messages-list
+        - @conversation.messages.each do |message|
+          = render "message_list_item", message: message, user: message.user
+
+    .write-review-main-column
+      .create-business-content
+        = form_for @message, url: conversation_messages_path(@conversation), html: { class: "business-rating" } do |f|
+          .business-form-field
+            = f.label :body, "Reply"
+            = f.text_area :body, rows: "4", class: "form-control"
+          .review-form-submit
+            = f.submit "Reply", class: "btn write-review"
+            = link_to "Cancel", conversations_path

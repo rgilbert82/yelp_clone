@@ -1,0 +1,28 @@
+%h4.main-section-businesses-header Hot & New Businesses
+%ul.businesses-list-home
+  - if @businesses.size == 0
+    %p.empty-list-2 There are no businesses pages for #{@city.name}.
+    %p.empty-list-2 Go set one up!
+  - else
+    - @businesses.each do |business|
+      = render "business_list_item", business: business
+
+- if @pages > 1
+  .pagination-bar
+    .current-page Page #{@count} of #{@pages}
+    .page-links
+      - if @count > 1
+        = link_to "prev", city_businesses_path(@city, count: @count - 1), remote: true
+
+      - 1.upto(@pages) do |n|
+        - if @count == n
+          %span #{n}
+        - else
+          %span
+            = link_to n, city_businesses_path(@city, count: n), remote: true
+
+      - if @count < @pages
+        %span
+          = link_to "next", city_businesses_path(@city, count: @count + 1), remote: true
+      - else
+        %span.grayed-link next

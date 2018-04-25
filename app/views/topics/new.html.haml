@@ -1,0 +1,23 @@
+%section.ui-write-review
+  = render 'shared/messages'
+  .write-review-main-column
+    %h3 Start A New Conversation
+    .create-business-content
+      = form_for @topic, url: city_topics_path(@city), html: { class: "business-rating" } do |f|
+        .business-form-field
+          = f.label :title, "Topic Name"
+          = f.text_field :title, class: "form-control"
+        .business-form-field
+          = f.label :topic_category_id, "Category"
+          = f.select :topic_category_id, @topic_categories.collect { |tc| [ tc.name, tc.id ] }, {}, {class: "form-control"}
+        .business-form-field
+          = f.label :city_id, "Location"
+          = f.select :city_id, set_cities.collect { |p| [ p.format_city_state, p.id ] }, {selected: @city.id}, {class: "form-control"}
+        = f.fields_for :post do |p|
+          .business-form-field
+            = p.label :body, "Message"
+            = p.text_area :body, rows: "4", class: "form-control"
+
+        .review-form-submit
+          = f.submit "Post", class: "btn write-review"
+          = link_to "Cancel", city_topics_path(@city)

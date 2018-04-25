@@ -1,0 +1,11 @@
+.choose-city-bar
+  = render 'shared/messages'
+  
+  %h3 #{city_name ? city_name + ": " : ""} #{category}
+  %ul
+    - @cities.each do |city|
+      %li.city-selector
+        = link_to "#{city.format_city_state}", city_u_path(city)
+    %li.bullet &#8226;
+    %li.city-selector
+      = link_to "All Cities", users_path

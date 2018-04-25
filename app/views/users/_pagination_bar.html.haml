@@ -1,0 +1,12 @@
+.pagination-bar
+  .current-page
+    - if @count > 1
+      = link_to "prev", user_path(@user, page: page, count: @count - 1), remote: true
+    - else
+      %span.grayed-link prev
+  .page-links
+    - if @count < @pages
+      %span
+        = link_to "next", user_path(@user, page: page, count: @count + 1), remote: true
+    - else
+      %span.grayed-link next

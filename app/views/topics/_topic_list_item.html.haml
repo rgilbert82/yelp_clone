@@ -1,0 +1,20 @@
+%li.topic-list-item
+  .user-icon
+    = link_to user_path(topic.user), class: "btn" do
+      - unless topic.user.avatar.file.nil?
+        = image_tag(topic.user.avatar_url(:thumb).to_s)
+      - else
+        %span.glyphicon.glyphicon-user
+  .topic-summary
+    %h4
+      = link_to topic.title, city_topic_path(topic.city, topic, page: @page)
+      %small by #{topic.user.name}
+    %h5 #{show_limited_text(last_post.body)}
+    %small #{how_long_ago(last_post.created_at)} by #{last_post.user.name}
+  .number-of-replies
+    - $replies_count = topic.posts.count - 1
+    %span #{$replies_count} #{$replies_count == 1 ? 'reply' : 'replies'}
+
+  - if logged_in? && current_user_is_admin?
+    .admin-delete-link
+      = link_to "[Delete Topic]", admin_topic_path(id: topic.id), method: :delete, data: {confirm: "Are you sure?"}

@@ -1,0 +1,64 @@
+- if @page == "description"
+  .business-events.business-events-list-tab
+    = render "events_tab", event: @event, city: @city, business: @business
+
+- if @page == "attending"
+  .business-events.business-events-attending
+    = render "attending_tab", event: @event, city: @city, business: @business
+
+
+.business-sidebar
+  .business-info-box
+    %dl
+      %dt
+        %span.glyphicon.glyphicon-time
+      %dd
+        %h5
+          %b #{format_date_3(@event.start_time)}
+        %h5 #{format_time(@event.start_time)}
+    %dl
+      %dt
+        %span.glyphicon.glyphicon-home
+      %dd
+        %h5 #{ @business.address }
+        %h5 #{ @city.format_city_state } #{ @business.zip_code }
+    %dl
+      %dt
+        #{@business.price_range}
+      %dd
+        %b #{ @event.price }
+    - if @page == "attending"
+      %dl
+        %dt
+          %span.glyphicon.glyphicon-list-alt
+        %dd
+          %span
+            = link_to "Event Description", city_business_event_path(@city, @business, @event), remote: true
+    - else
+      %dl
+        %dt
+          %span.glyphicon.glyphicon-user
+        %dd
+          %span.attending-user-count
+            = link_to "#{@event.users.count}", city_business_event_path(@city, @business, @event, page: "attending"), remote: true
+          %span
+            - if @event.start_time > DateTime.now
+              attending
+            - else
+              attended
+
+  .business-info.event-info
+    .business-info-events
+      %h5 Other Events @
+      %h5
+        %span
+          = link_to "#{@business.name}", city_business_path(@city, @business)
+      %ul
+        - if upcoming_events(@business.events.without(@event)).size > 0
+          - upcoming_events(@business.events.without(@event)).take(5).each do |event|
+            %li.business-event-list-item
+              = link_to "<strong>#{event.name}</strong>: #{format_date_2(event.start_time)}".html_safe, city_business_event_path(@city, @business, event)
+        - else
+          %span No events
+      %span.glyphicon.glyphicon-folder-open
+      = link_to "Events archive", city_business_path(@city, @business, page: "events")

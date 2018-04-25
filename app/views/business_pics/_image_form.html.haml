@@ -1,0 +1,8 @@
+.add-image-form
+  = form_for @business_pic, url: city_business_photos_path(@city, @business), html: { class: "business-rating" } do |f|
+    .business-form-field
+      = f.label :image, "Add a new picture"
+      = f.file_field :image, class: "form-control"
+      = hidden_field_tag :business_id, @business.id
+    .image-form-submit
+      = f.submit "Submit", class: "btn write-review"

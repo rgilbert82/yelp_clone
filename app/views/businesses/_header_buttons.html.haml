@@ -1,0 +1,25 @@
+.business-profile-header-buttons
+  - if logged_in? && current_user == business.owner
+    .business-option
+      = link_to user_path(current_user, page: "businesses"), class: "btn write-review your-business" do
+        %span.glyphicon.glyphicon-star
+  - else
+    .business-option
+      = link_to new_city_business_review_path(city, business), class: "btn write-review" do
+        %span.glyphicon.glyphicon-star
+        Write A Review
+  .business-option.btn-group
+    = link_to logged_in? ? city_business_photos_path(city, business) : login_path, class: "btn btn-default", type: "button" do
+      %span.glyphicon.glyphicon-camera
+      Add Photo
+    = link_to bookmark_path(business), remote: true, method: "post", class: "btn btn-default", type: "button" do
+      %span.glyphicon.glyphicon-bookmark
+      %span.bookmark-button #{ logged_in? && current_user.has_bookmark?(business) ? "Remove Bookmark" : "Bookmark" }
+    - if logged_in? && current_user.owns_business?(business)
+      = link_to edit_city_business_path(city, business), class: "btn btn-default", type: "button" do
+        %span.glyphicon.glyphicon-pencil
+        Edit Business
+    - elsif logged_in? && current_user.admin?
+      = link_to edit_city_business_path(city, business), class: "btn btn-default", type: "button" do
+        %span.glyphicon.glyphicon-pencil
+        Admin Edit

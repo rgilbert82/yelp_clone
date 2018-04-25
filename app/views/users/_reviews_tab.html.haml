@@ -1,0 +1,11 @@
+%h2 Reviews
+.user-reviews
+  - if user.reviews.size == 0
+    %span.empty-list #{current_user == user ? 'You haven\'t' : user.name + ' hasn\'t' } written any reviews yet
+  - else
+    %ul
+      - list.each do |review|
+        = render "review_list_item", review: review, business: review.business, feed: false
+
+    - if pages > 1
+      = render "pagination_bar", page: "reviews"

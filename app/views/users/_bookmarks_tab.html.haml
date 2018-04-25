@@ -1,0 +1,10 @@
+%h2 Bookmarks
+.user-bookmarks
+  - if user.bookmarks.size == 0
+    %span.empty-list #{current_user == user ? 'You don\'t' : user.name + ' doesn\'t' } have any bookmarks
+  %ul
+    - list.each_with_index do |bookmark, index|
+      = render "bookmark_list_item", bookmark: bookmark, business: bookmark.business, index: user_index(index, count)
+
+  - if pages > 1
+    = render "pagination_bar", page: "bookmarks"

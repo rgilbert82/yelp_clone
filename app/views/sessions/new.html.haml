@@ -1,0 +1,12 @@
+%section.ui-form-page
+  = render 'shared/messages'
+  
+  %h2 Log In
+
+  = form_tag sessions_path, html: { class: "form-group" } do
+    = email_field_tag :email, "", class: "form-control", id: "email", name: "email", placeholder: "Email"
+    = password_field_tag :password, "", class: "form-control", id: "password", name: "password", placeholder: "Password"
+    = submit_tag "Log In", class: "btn write-review"
+
+  %aside
+    = link_to "Forgot Password?", forgot_password_path

@@ -1,0 +1,21 @@
+%li
+  .business-list-icon
+    = link_to city_business_event_path(event.business.city, event.business, event), class: "btn" do
+      - if event.business.has_images?
+        = image_tag(event.business.business_pics.last.image_url(:thumb).to_s)
+      - else
+        %span(class="glyphicon #{event.business.sub_categories.first.category.icon_class}")
+  .business-list-details
+    %h4
+      %span #{index}.
+      = link_to event.name, city_business_event_path(event.business.city, event.business, event)
+    .price-and-type
+      %h6 #{format_date(event.start_time)}
+      %h6 #{event.price}
+  .business-list-address
+    %h5
+      %span @
+      = link_to event.business.name, city_business_path(event.business.city, event.business)
+    %p #{event.business.address}
+    %p #{event.business.city.format_city_state} #{event.business.zip_code}
+    %p #{format_phone_number(event.business.phone_number)}

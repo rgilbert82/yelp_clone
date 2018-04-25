@@ -1,0 +1,115 @@
+.user-left-sidebar
+  %h2
+    - if logged_in? && current_user == @user
+      Your Profile
+    - else
+      #{@user.name}'s Profile
+  %ul
+    %li
+      = link_to "Profile Overview",  user_path(@user), class: "user-sidebar-tab-overview #{ @page == 'overview' ? 'user-current-tab' : '' }", remote: true
+    - if logged_in? && current_user == @user
+      %li
+        = link_to "Your Businesses",  user_path(@user, page: "businesses"), class: "user-sidebar-tab-overview #{ @page == 'businesses' ? 'user-current-tab' : '' }", remote: true
+      %li
+        = link_to "Your Feed",  user_path(@user, page: "feed"), class: "user-sidebar-tab-overview #{ @page == 'feed' ? 'user-current-tab' : '' }", remote: true
+    %li
+      = link_to "Friends",  user_path(@user, page: "friends"), class: "user-sidebar-tab-friends #{ @page == 'friends' ? 'user-current-tab' : '' }", remote: true
+    %li
+      = link_to "Followers",  user_path(@user, page: "followers"), class: "user-sidebar-tab-followers #{ @page == 'followers' ? 'user-current-tab' : '' }", remote: true
+    %li
+      = link_to "Following",  user_path(@user, page: "following"), class: "user-sidebar-tab-following #{ @page == 'following' ? 'user-current-tab' : '' }", remote: true
+    %li
+      = link_to "Reviews",  user_path(@user, page: "reviews"), class: "user-sidebar-tab-reviews #{ @page == 'reviews' ? 'user-current-tab' : '' }", remote: true
+    %li
+      = link_to "Bookmarks",  user_path(@user, page: "bookmarks"), class: "user-sidebar-tab-bookmarks #{ @page == 'bookmarks' ? 'user-current-tab' : '' }", remote: true
+    %li
+      = link_to "Events",  user_path(@user, page: "events"), class: "user-sidebar-tab-events #{ @page == 'events' ? 'user-current-tab' : '' }", remote: true
+    %li
+      = link_to "Business Photos", photos_user_path(@user), class: "user-sidebar-tab-events"
+
+- if @page == "friends"
+  .user-content.user-main-content-wide.user-main-content-friends
+    = render "friends_tab", user: @user
+
+- if @page == "followers"
+  .user-content.user-main-content-wide.user-main-content-followers
+    = render "followers_tab", user: @user
+
+- if @page == "following"
+  .user-content.user-main-content-wide.user-main-content-followings
+    = render "following_tab", user: @user
+
+- elsif @page == "reviews"
+  .user-content.user-main-content-wide.user-main-content-reviews
+    = render "reviews_tab", user: @user, pages: @pages, list: @list
+
+- elsif @page == "feed"
+  .user-content.user-main-content-wide.user-main-content-feed
+    = render "feed_tab", user: @user, pages: @pages, list: @list
+
+- elsif @page == "businesses"
+  .user-content.user-main-content-wide.user-main-content-businesses
+    = render "businesses_tab", user: @user, pages: @pages, list: @list, count: @count
+
+- elsif @page == "bookmarks"
+  .user-content.user-main-content-wide.user-main-content-bookmarks
+    = render "bookmarks_tab", user: @user, pages: @pages, list: @list, count: @count
+
+- elsif @page == "events"
+  .user-content.user-main-content-wide.user-main-content-events
+    = render "events_tab", user: @user, pages: @pages, list: @list, count: @count, upcoming_events: @upcoming_events, past_events: @past_events
+
+- if @page == "overview"
+  .user-content.user-main-content.user-main-content-profile-overview>
+    = render "overview_tab", user: @user
+
+  .user-right-sidebar
+    - if logged_in? && current_user == @user
+      %h2 Your Stats
+    - else
+      %h2 About #{@user.name}
+    .user-rating-sidebar-stats
+      %h3 Rating Distribution
+      %ul
+        %li
+          %span.glyphicon.glyphicon-star-empty
+          %span <b>5 Stars</b> #{ @user.count_review_stars(5) }
+        %li
+          %span.glyphicon.glyphicon-star-empty
+          %span <b>4 Stars</b> #{ @user.count_review_stars(4) }
+        %li
+          %span.glyphicon.glyphicon-star-empty
+          %span <b>3 Stars</b> #{ @user.count_review_stars(3) }
+        %li
+          %span.glyphicon.glyphicon-star-empty
+          %span <b>2 Stars</b> #{ @user.count_review_stars(2) }
+        %li
+          %span.glyphicon.glyphicon-star-empty
+          %span <b>1 Stars</b> #{ @user.count_review_stars(1) }
+    .user-rating-sidebar-stats
+      %h3 Review Votes
+      %ul
+        %li
+          %span.glyphicon.glyphicon-education
+          %span <b>Useful</b> #{ @user.useful_count }
+        %li
+          %span.glyphicon.glyphicon-thumbs-up
+          %span <b>Funny</b> #{ @user.funny_count }
+        %li
+          %span.glyphicon.glyphicon-sunglasses
+          %span <b>Cool</b> #{ @user.cool_count }
+    .user-rating-sidebar-stats
+      %h3 Stats
+      %ul
+        %li
+          %span.glyphicon.glyphicon-bookmark
+          %span <b>Bookmarks</b> #{ @user.bookmarks.count }
+        %li
+          %span.glyphicon.glyphicon-user
+          %span.user-followers-count <b>Followers</b> #{ @user.followers.count }
+    .user-rating-sidebar-stats
+      %h3 Location
+      %h4 #{@user.city.format_city_state}
+    .user-rating-sidebar-stats
+      %h3 Reviewing Since
+      %h4 #{format_date(@user.created_at)}

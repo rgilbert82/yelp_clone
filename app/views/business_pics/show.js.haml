@@ -1,0 +1,4 @@
+var $modal = $('.photo-modal');
+
+$modal.show();
+$modal.html("#{j render partial: 'business_pics/image_modal', locals: { photo: @photo, photo_user: @photo.user, user: @user, business: @photo.business, city: @photo.business.city }}");

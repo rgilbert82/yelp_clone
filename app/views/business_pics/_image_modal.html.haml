@@ -1,0 +1,34 @@
+- $user_id = user ? user.id : nil
+
+.photo-dark-layer
+.photo-wrapper
+  .photo-col
+    - if photo
+      = image_tag(photo.image_url.to_s)
+
+      = link_to city_business_photo_path(city, business, prev_photo(photo, user), user_id: $user_id), remote: true do
+        %span.glyphicon.glyphicon-chevron-left
+      = link_to city_business_photo_path(city, business, next_photo(photo, user), user_id: $user_id), remote: true do
+        %span.glyphicon.glyphicon-chevron-right
+  .photo-info-col
+    .user-info
+      .user-icon-small
+        = link_to user_path(photo_user), class: "btn" do
+          - unless photo_user.avatar.file.nil?
+            = image_tag(photo_user.avatar_url(:thumb).to_s)
+          - else
+            %span.glyphicon.glyphicon-user
+      .user-details
+        %h4
+          = link_to photo_user.name, user_path(photo_user)
+        .user-thumb-stats
+          .user-thumb-stat
+            %span.glyphicon.glyphicon-user
+            %span <b>#{photo_user.all_friends.count}</b>
+          .user-thumb-stat
+            %span.glyphicon.glyphicon-star-empty
+            %span <b>#{photo_user.reviews.count}</b>
+    %small.photo-date= format_date(photo.created_at)
+    %small
+      View
+      = link_to business.name, city_business_path(city, business)

@@ -1,0 +1,34 @@
+%li(data_id="#{business.id}")
+  .user-bookmark
+    - if logged_in? && current_user == @user
+      %span.edit-review-link
+        = link_to "Delete bookmark", bookmark_path(business), remote: true, method: "post"
+    .sidebar-reviewer-info
+      .business-icon
+        = link_to city_business_path(business.city, business), class: "btn" do
+          - if business.has_images?
+            = image_tag(business.business_pics.last.image_url(:thumb).to_s)
+          - else
+            %span.glyphicon(class="#{business.category_icon}")
+      .business-details
+        %h5
+          = link_to "#{business.name}", city_business_path(business.city, business)
+        .review-content
+          .star-rating
+            / Declare Variable
+            - $rating = business.average_rating
+            - $color = star_color($rating)
+            .star-box(class="#{ $rating > 0 ? $color : '' }")
+              %span.glyphicon.glyphicon-star
+            .star-box(class="#{ $rating >= 2 ? $color : '' }")
+              %span.glyphicon.glyphicon-star
+            .star-box(class="#{ $rating >= 3 ? $color : '' }")
+              %span.glyphicon.glyphicon-star
+            .star-box(class="#{ $rating >= 4 ? $color : '' }")
+              %span.glyphicon.glyphicon-star
+            .star-box(class="#{ $rating == 5 ? $color : '' }")
+              %span.glyphicon.glyphicon-star
+          .review-date
+            %span #{format_date_2(bookmark.created_at)}
+          .business-list-address
+            %p #{business.city.format_city_state}

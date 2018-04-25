@@ -1,0 +1,71 @@
+%section.top-gray-header
+  .section-wrapper
+    .categories-gray-header-wrapper
+      = render 'shared/messages'
+
+      .top-gray-header-header
+        .topic-bar-wrapper
+          %h3 <strong>#{@sub_category.name}</strong>: #{@city_name}
+          %ul
+            - @cities.each do |city|
+              %li.city-selector
+                = link_to "#{city.format_city_state}", city_category_sub_category_path(city, @category, @sub_category)
+            %li.bullet &#8226;
+            %li.city-selector
+              = link_to "All Cities", category_sub_category_path(@category, @sub_category)
+        %h5
+          - if @businesses.count > 1
+            Showing #{business_index(0, @count)}-#{business_index(0, @count) + @businesses.count - 1}
+          - elsif @businesses.count == 1
+            Showing #{business_index(0, @count)}
+          - else
+            Showing 0
+      .businesses-nav
+        .businesses-nav-header
+          = link_to "Businesses", @city ? city_businesses_path(@city) : root_path
+          %span.glyphicon.glyphicon-chevron-right.category-arrow
+          = link_to "#{@category.name}", @city ? city_category_path(@city, @category) : category_path(@category)
+          %span.glyphicon.glyphicon-chevron-right.category-arrow
+          = link_to "#{@sub_category.name}", @city ? city_category_sub_category_path(@city, @category, @sub_category) : category_sub_category_path(@category, @sub_category)
+
+      .business-options-nav
+        .business-option.price-range.btn-group
+          = link_to "$", @city ? city_category_sub_category_path(@city, @category, @sub_category, page: filter_toggle("price_range_1")) : category_sub_category_path(@category, @sub_category, page: filter_toggle("price_range_1")), remote: true, type: "button", class: "btn btn-default #{btn_select_toggle("price_range_1")}"
+          = link_to "$$", @city ? city_category_sub_category_path(@city, @category, @sub_category, page: filter_toggle("price_range_2")) : category_sub_category_path(@category, @sub_category, page: filter_toggle("price_range_2")), remote: true, type: "button", class: "btn btn-default #{btn_select_toggle("price_range_2")}"
+          = link_to "$$$", @city ? city_category_sub_category_path(@city, @category, @sub_category, page: filter_toggle("price_range_3")) : category_sub_category_path(@category, @sub_category, page: filter_toggle("price_range_3")), remote: true, type: "button", class: "btn btn-default #{btn_select_toggle("price_range_3")}"
+          = link_to "$$$$", @city ? city_category_sub_category_path(@city, @category, @sub_category, page: filter_toggle("price_range_4")) : category_sub_category_path(@category, @sub_category, page: filter_toggle("price_range_4")), remote: true, type: "button", class: "btn btn-default #{btn_select_toggle("price_range_4")}"
+        .business-option
+          = link_to "Open Now", @city ? city_category_sub_category_path(@city, @category, @sub_category, page: filter_toggle("open_now")) : category_sub_category_path(@category, @sub_category, page: filter_toggle("open_now")), remote: true, type: "button", class: "btn btn-default #{btn_select_toggle("open_now")}"
+        - @category.category_options.select(&:searchable).each do |co|
+          .business-option
+            = link_to "#{co.name}", @city ? city_category_sub_category_path(@city, @category, @sub_category, page: filter_toggle(co.formatted_name)) : category_sub_category_path(@category, @sub_category, page: filter_toggle(co.formatted_name)), remote: true, type: "button", class: "btn btn-default #{btn_select_toggle(co.formatted_name)}"
+
+.section-wrapper
+  %section.ui-index
+    %ul.businesses-list
+      - if @businesses.size == 0
+        %p.empty-list-2 There are no businesses in this category.
+        %p.empty-list-2 Go set one up!
+      - @businesses.each_with_index do |business, index|
+        = render "shared/business_list_item", index: business_index(index, @count), business: business
+
+    - if @pages > 1
+      .pagination-bar
+        .current-page Page #{@count} of #{@pages}
+        .page-links
+          - if @count > 1
+            = link_to "prev", (@city ? city_category_sub_category_path(@city, @category, @sub_category, page: @page, count: @count - 1) : category_sub_category_path(@category, @sub_category, page: @page, count: @count - 1)), remote: true
+
+          - 1.upto(@pages) do |n|
+            - if @count == n
+              %span #{n}
+            - else
+              %span
+                = link_to n, (@city ? city_category_sub_category_path(@city, @category, @sub_category, page: @page, count: n) : category_sub_category_path(@category, @sub_category, page: @page, count: n)), remote: true
+
+
+          - if @count < @pages
+            %span
+              = link_to "next", (@city ? city_category_sub_category_path(@city, @category, @sub_category, page: @page, count: @count + 1) : category_sub_category_path(@category, @sub_category, page: @page, count: @count + 1)), remote: true
+          - else
+            %span.grayed-link next

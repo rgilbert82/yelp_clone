@@ -1,0 +1,29 @@
+%section.top-gray-header
+  .section-wrapper
+    = render 'shared/messages'
+    .event-profile-header
+      .business-profile-info
+        %h1 #{@event.name}
+        %h3.event-header-h3
+          %span @
+          %span
+            = link_to "#{@business.name}", city_business_path(@city, @business)
+        .price-and-type
+          - @business.sub_categories.each do |sub_cat|
+            = link_to sub_cat.name, city_category_sub_category_path(@business.city, sub_cat.category, sub_cat)
+      .business-profile-header-buttons
+        - if @event.start_time > DateTime.now
+          .business-option
+            = link_to attend_event_path(@event, page: @page), remote: true, method: "post", class: "btn write-review" do
+              %span.glyphicon.glyphicon-calendar
+              - if logged_in? && current_user.events.include?(@event)
+                %span.attend-event-button You Are Attending This Event
+              - else
+                %span.attend-event-button Attend This Event
+        - else
+          %span
+            %b This event has ended
+
+.section-wrapper
+  %section.ui-event-profile
+    = render "event_content"

@@ -1,0 +1,173 @@
+%section.top-gray-header
+  .top-gray-header-header
+    %h3
+      <strong>Restaurants</strong>  Los Angeles, CA
+    %h5
+      Showing 1-10 of 136
+  .businesses-nav
+    .businesses-nav-header
+      = link_to "Businesses"
+      %span.glyphicon.glyphicon-chevron-right.category-arrow
+      = link_to "Restaurants"
+    .businesses-nav-list
+      %div
+        = link_to "American (New)"
+        = link_to "American (Traditional)"
+        = link_to "Breakfast & Brunch"
+      %div
+        = link_to "Burgers"
+        = link_to "Cafes"
+        = link_to "Chicken Wings"
+      %div
+        = link_to "Chinese"
+        = link_to "Delis"
+        = link_to "Fast Food"
+      %div
+        = link_to "Italian"
+        = link_to "Japanese"
+        = link_to "Korean"
+      %div
+        = link_to "Mexican"
+        = link_to "Pizza"
+        = link_to "Sandwiches"
+      %div
+        = link_to "Seafood"
+        = link_to "Sushi Bars"
+        = link_to "Vietnamese"
+    .businesses-nav-footer
+      = link_to "More Categories"
+
+  .business-options-nav
+    .business-option.price-range.btn-group
+      %button(type="button" class="btn btn-default") $
+      %button(type="button" class="btn btn-default btn-selected") $$
+      %button(type="button" class="btn btn-default") $$$
+      %button(type="button" class="btn btn-default") $$$$
+    .business-option.open-now
+      %button(type="button" class="btn btn-default btn-selected") Open Now
+    .business-option.order-delivery
+      %button(type="button" class="btn btn-default") Order Delivery
+    .business-option.order-pickup
+      %button(type="button" class="btn btn-default") Order Pickup
+    .business-option.make-reservation
+      %button(type="button" class="btn btn-default") Make A Reservation
+    .business-option.all-filters
+      %button(type="button" class="btn btn-default") All Filters
+
+%section.ui-index
+  %ul.businesses-list
+    %li
+      .business-list-icon
+        = link_to "", class: "btn" do
+          %span.glyphicon.glyphicon-cutlery
+      .business-list-details
+        %h4
+          %span 1.
+          = link_to "Fatburger"
+        .business-rating
+          .star-rating
+            .star-box.star-box-starred
+              %span.glyphicon.glyphicon-star
+            .star-box.star-box-starred
+              %span.glyphicon.glyphicon-star
+            .star-box.star-box-starred
+              %span.glyphicon.glyphicon-star
+            .star-box.star-box-starred
+              %span.glyphicon.glyphicon-star
+            .star-box
+              %span.glyphicon.glyphicon-star
+          %span.number-of-reviews
+            114 reviews
+        .price-and-type
+          $$ &#8226;
+          = link_to "Hamburgers"
+      .business-list-address
+        %p Chinatown
+        %p 727 N Broadway
+        %p Los Angeles, CA 90012
+        %p Phone number (213) 935-8399
+
+    %li
+      .business-list-icon
+        = link_to "", class: "btn" do
+          %span.glyphicon.glyphicon-cutlery
+      .business-list-details
+        %h4
+          %span 2.
+          = link_to "In N Out Burger"
+        .business-rating
+          .star-rating
+            .star-box.star-box-starred
+              %span.glyphicon.glyphicon-star
+            .star-box.star-box-starred
+              %span.glyphicon.glyphicon-star
+            .star-box.star-box-starred
+              %span.glyphicon.glyphicon-star
+            .star-box
+              %span.glyphicon.glyphicon-star
+            .star-box
+              %span.glyphicon.glyphicon-star
+          %span.number-of-reviews
+            221 reviews
+        .price-and-type
+          $$ &#8226;
+          = link_to "Hamburgers"
+      .business-list-address
+        %p Downtown
+        %p 707 S Grand Ave
+        %p Los Angeles, CA 90017
+        %p Phone number (424) 362-6263
+
+    %li
+      .business-list-icon
+        = link_to "", class: "btn" do
+          %span.glyphicon.glyphicon-cutlery
+      .business-list-details
+        %h4
+          %span 3.
+          = link_to "Umami Burger"
+        .business-rating
+          .star-rating
+            .star-box.star-box-starred
+              %span.glyphicon.glyphicon-star
+            .star-box.star-box-starred
+              %span.glyphicon.glyphicon-star
+            .star-box.star-box-starred
+              %span.glyphicon.glyphicon-star
+            .star-box
+              %span.glyphicon.glyphicon-star
+            .star-box
+              %span.glyphicon.glyphicon-star
+          %span.number-of-reviews
+            45 reviews
+        .price-and-type
+          $$ &#8226;
+          = link_to "Hamburgers"
+      .business-list-address
+        %p Koreatown, Wilshire Center
+        %p 3603 W 6th St
+        %p Los Angeles, CA 90020
+        %p Phone number (213) 263-2355
+
+  .pagination-bar
+    .current-page Page 1 of 100
+    .page-links
+      %span 1
+      %span
+        = link_to "2"
+      %span
+        = link_to "3"
+      %span
+        = link_to "4"
+      %span
+        = link_to "5"
+      %span
+        = link_to "6"
+      %span
+        = link_to "7"
+      %span
+        = link_to "8"
+      %span
+        = link_to "9"
+      %span
+        = link_to "Next"

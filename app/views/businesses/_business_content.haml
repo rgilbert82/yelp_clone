@@ -1,0 +1,89 @@
+- if @page == "reviews"
+  .business-reviews
+    %h2 <strong>Recommended Reviews</strong> for #{@business.name}
+    .reviews-list
+      - if @reviews.size == 0
+        %span.empty-list #{@business.name} doesn't have any reviews yet
+      %ul
+        - @reviews.each do |review|
+          = render "review_list_item", review: review, business: review.business, user: review.user
+
+      - if @pages > 1
+        = render "pagination_bar"
+
+- elsif @page == "events"
+  .business-events
+    %h2 <strong>Events</strong> @ #{@business.name}
+    - if logged_in? && current_user.owns_business?(@business)
+      = link_to "Create Event", new_city_business_event_path(@city, @business),class: "right-float-link added-right-margin"
+    .reviews-list
+      - if @upcoming_events.size == 0
+        %span.empty-list #{@business.name} doesn't have any upcoming events
+      %ul
+        - @upcoming_events.each_with_index do |event, index|
+          = render "event_list_item", event: event, business: @business, index: business_index(index, @count)
+      - if @pages > 1
+        = render "pagination_bar"
+
+    %hr.line-break
+    %h2 <strong>Past Events</strong>
+    .reviews-list
+      - if @past_events.size == 0
+        %span.empty-list #{@business.name} doesn't have any past events
+      %ul
+        - @past_events.each_with_index do |event, index|
+          = render "event_list_item", event: event, business: @business, index: index + 1
+
+
+.business-sidebar
+  .business-info-box
+    %dl
+      %dt
+        %span.glyphicon.glyphicon-time
+      %dd
+        - if @business.open_today?
+          Today <b>#{@business.todays_hours}</b>
+        - else
+          Closed Today
+    %dl
+      %dt
+        #{@business.price_range}
+      %dd
+        Price Range <b>#{price_range_info(@business.price_range)}</b>
+  .business-info
+    - if @page == "reviews"
+      .business-info-events
+        %h5 Upcoming Events
+        %ul
+          - if @upcoming_events.size > 0
+            - @upcoming_events.take(5).each do |event|
+              %li.business-event-list-item
+                = link_to "<strong>#{event.name}</strong>: #{format_date_2(event.start_time)}".html_safe, city_business_event_path(@city, @business, event)
+          - else
+            %span No events
+        - if logged_in? && current_user == @business.owner
+          .event-sidebar-option
+            %span.glyphicon.glyphicon-plus
+            = link_to "Add Event", new_city_business_event_path(@city, @business)
+        .event-sidebar-option
+          %span.glyphicon.glyphicon-folder-open
+          = link_to "Events archive", city_business_path(@city, @business, page: "events"), remote: true
+    - elsif @page == "events"
+      .business-info-events
+        %h5 Reviews
+        %span.glyphicon.glyphicon-folder-open
+        = link_to "All reviews", city_business_path(@city, @business, page: "reviews"), remote: true
+
+    .business-info-hours
+      %h5 Hours
+      %ul
+        - @business.hours.each do |h|
+          %li <b>#{day_name(h.day)}</b> #{format_time(h.opens_at)} - #{format_time(h.closes_at)}
+      - if logged_in? && current_user == @business.owner
+        %span.glyphicon.glyphicon-pencil
+        = link_to "Edit business info", edit_city_business_path(@city, @business)
+    .more-business-info
+      %h5 More Business Info
+      %ul
+        - @business.business_options.each do |bo|
+          %li #{bo.category_option.name} <b>#{bo.option}</b>

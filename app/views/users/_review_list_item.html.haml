@@ -1,0 +1,56 @@
+%li(class="review-list-item" data_id="#{review.id}")
+  .user-review.feed-review
+    - if logged_in? && review.user == current_user
+      = link_to "Edit review", edit_city_business_review_path(business.city, business, review), class: "edit-review-link"
+    - if feed
+      %h4
+        Review by
+        = link_to "#{review.user.name}", user_path(review.user)
+    .sidebar-reviewer-info
+      .business-icon
+        = link_to city_business_path(business.city, business), class: "btn" do
+          - if business.has_images?
+            = image_tag(business.business_pics.last.image_url(:thumb).to_s)
+          - else
+            %span.glyphicon(class="#{business.category_icon}")
+      .business-details
+        %h5
+          = link_to "#{business.name}", city_business_path(business.city, business)
+        .price-and-type
+          #{business.price_range} &#8226;
+          - business.sub_categories.each do |sub_cat|
+            = link_to sub_cat.name, city_category_sub_category_path(business.city, sub_cat.category, sub_cat)
+        .business-list-address
+          %p #{business.address}
+          %p #{business.city.format_city_state} #{business.zip_code}
+    .review-content
+      / Declare Variables
+      - $rating = review.star_rating
+      - $color = star_color($rating)
+      .star-rating
+        .star-box(class="#{ $rating > 0 ? $color : '' }")
+          %span.glyphicon.glyphicon-star
+        .star-box(class="#{ $rating >= 2 ? $color : '' }")
+          %span.glyphicon.glyphicon-star
+        .star-box(class="#{ $rating >= 3 ? $color : '' }")
+          %span.glyphicon.glyphicon-star
+        .star-box(class="#{ $rating >= 4 ? $color : '' }")
+          %span.glyphicon.glyphicon-star
+        .star-box(class="#{ $rating == 5 ? $color : '' }")
+          %span.glyphicon.glyphicon-star
+      .review-date
+        %span #{format_date_2(review.created_at)}
+      .review-text
+        %p #{review.body}
+      .review-footer
+        %h5 Was this review ...?
+        .review-footer-buttons
+          = link_to review_stats_path(review, stat: "useful"), remote: true, method: "post", class: "btn btn-default #{review.user_voted_useful?(current_user) ? 'review-stat-selected' : ''}" do
+            Useful
+            %span.useful-count #{review.useful_count}
+          = link_to review_stats_path(review, stat: "funny"), remote: true, method: "post", class: "btn btn-default #{review.user_voted_funny?(current_user) ? 'review-stat-selected' : ''}" do
+            Funny
+            %span.funny-count #{review.funny_count}
+          = link_to review_stats_path(review, stat: "cool"), remote: true, method: "post", class: "btn btn-default #{review.user_voted_cool?(current_user) ? 'review-stat-selected' : ''}" do
+            Cool
+            %span.cool-count #{review.cool_count}

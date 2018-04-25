@@ -1,0 +1,7 @@
+var $wrapper = $('.interact-with-user');
+var $friendsCount = $("span.user-friends-count");
+var $friendsPage = $(".user-main-content-friends");
+
+$wrapper.html("#{j render partial: 'users/interact_with_user', locals: { user: @other_user }}");
+$friendsCount.html("<b>#{@other_user.all_friends.count}</b> #{@other_user.all_friends.count == 1 ? 'Friend' : 'Friends'}")
+$friendsPage.html("#{j render partial: 'users/friends_tab', locals: { user: @other_user }}");

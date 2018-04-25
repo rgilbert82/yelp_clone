@@ -1,0 +1,8 @@
+%section.ui-form-page
+  = render 'shared/messages'
+  %h2 Reset Your Password
+
+  = form_tag password_resets_path, html: { class: "form-group" } do
+    = password_field_tag :password, "", class: "form-control", id: "password", name: "password", placeholder: "Your New Password"
+    = hidden_field_tag :token, @token
+    = submit_tag "Submit", class: "btn write-review"

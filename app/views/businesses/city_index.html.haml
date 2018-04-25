@@ -1,0 +1,12 @@
+.section-wrapper
+  = render "city_list_header", category: @city.name
+
+  %section.ui-index.main-business-index-list
+    = render "city_index"
+
+  - if @reviews.size > 0
+    %section.ui-index.recent-activity
+      %h4.main-section-reviews-header Recent Activity
+      %ul.businesses-list-home.reviews-list-home
+        - @reviews.each do |review|
+          = render "review_list_item_main", review: review

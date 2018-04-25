@@ -1,0 +1,11 @@
+%h2 Your Businesses
+= link_to "Create New Business", new_city_business_path(current_user.city), class: "right-float-link"
+.user-bookmarks
+  - if user.businesses.size == 0
+    %span.empty-list You don't own any businesses
+  %ul
+    - list.each_with_index do |business, index|
+      = render "business_list_item", business: business, index: user_index(index, count)
+
+  - if pages > 1
+    = render "pagination_bar", page: "businesses"

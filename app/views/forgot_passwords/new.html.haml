@@ -1,0 +1,9 @@
+%section.ui-form-page
+  = render 'shared/messages'
+  
+  %h2 Forgot Your Password?
+  %h5 We'll send you an email to reset your password
+
+  = form_tag forgot_passwords_path, html: { class: "form-group" } do
+    = email_field_tag :email, "", class: "form-control", id: "email", name: "email", placeholder: "Email"
+    = submit_tag "Submit", class: "btn write-review"

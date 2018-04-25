@@ -1,0 +1,4 @@
+%h2 <strong>Event Description</strong>
+- if logged_in? && current_user.owns_event?(event)
+  = link_to "Edit Event", edit_city_business_event_path(city, business, event),class: "right-float-link"
+%p.event-description #{event.description}

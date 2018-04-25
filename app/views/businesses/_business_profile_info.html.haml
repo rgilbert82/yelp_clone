@@ -1,0 +1,31 @@
+.business-profile-info
+  %h1
+    = link_to @business.name, city_business_path(@city, @business)
+  .business-rating
+    .star-rating
+      / Declare Variable
+      - $rating = @business.average_rating
+      - $color = star_color($rating)
+      .star-box(class="#{ $rating > 0 ? $color : '' }")
+        %span.glyphicon.glyphicon-star
+      .star-box(class="#{ $rating >= 2 ? $color : '' }")
+        %span.glyphicon.glyphicon-star
+      .star-box(class="#{ $rating >= 3 ? $color : '' }")
+        %span.glyphicon.glyphicon-star
+      .star-box(class="#{ $rating >= 4 ? $color : '' }")
+        %span.glyphicon.glyphicon-star
+      .star-box(class="#{ $rating == 5 ? $color : '' }")
+        %span.glyphicon.glyphicon-star
+    %span.number-of-reviews
+      #{@business.reviews.count} reviews
+  .price-and-type
+    #{@business.price_range} &#8226;
+    - @business.sub_categories.each do |sub_cat|
+      = link_to sub_cat.name, city_category_sub_category_path(@business.city, sub_cat.category, sub_cat)
+
+  .map-and-address
+    %iframe(width="238" height="150" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBJ32XFwnf9SLFRWCj5r4yVDf2DJkseVps&q=#{@business.address}+#{@city.name}+#{@city.state.name}" allowfullscreen)
+    .business-address-phone
+      %h6 #{@business.address}
+      %h6 #{@city.format_city_state} #{@business.zip_code}
+      %h6 #{format_phone_number(@business.phone_number)}

@@ -1,0 +1,31 @@
+%li
+  .sidebar-review-wrapper
+    .sidebar-reviewer-info
+      .reviewer-icon
+        = link_to user_path(review.user), class: "btn" do
+          - unless review.user.avatar.file.nil?
+            = image_tag(review.user.avatar_url(:thumb).to_s)
+          - else
+            %span.glyphicon.glyphicon-user
+      .reviewer-details
+        %h5
+          = link_to "#{review.user.name}", user_path(review.user)
+    .review-content
+      / Declare Variables
+      - $rating = review.star_rating
+      - $color = star_color($rating)
+      .star-rating
+        .star-box(class="#{ $rating > 0 ? $color : '' }")
+          %span.glyphicon.glyphicon-star
+        .star-box(class="#{ $rating >= 2 ? $color : '' }")
+          %span.glyphicon.glyphicon-star
+        .star-box(class="#{ $rating >= 3 ? $color : '' }")
+          %span.glyphicon.glyphicon-star
+        .star-box(class="#{ $rating >= 4 ? $color : '' }")
+          %span.glyphicon.glyphicon-star
+        .star-box(class="#{ $rating == 5 ? $color : '' }")
+          %span.glyphicon.glyphicon-star
+      .review-date
+        %span #{format_date_2(review.created_at)}
+      .review-text
+        %p #{review.body}

@@ -1,0 +1,27 @@
+.section-wrapper
+  = render "city_list_header", city_name: @city.name, category: "Talk!"
+
+.section-wrapper
+  %section.talk-forum
+    = render "talk_forum_sidebar"
+
+    .talk-forum-content
+      .topic-header
+        %h2 #{@topic.title}
+        %span in
+        %span
+          = link_to @topic.topic_category.name, city_topics_path(@city, page: @topic.topic_category.id.to_s)
+
+      %ul.posts-list
+        - @topic.posts.each do |post|
+          = render "post_list_item", post: post, user: post.user
+      %hr.line-break
+
+      .write-review-main-column
+        .create-business-content
+          = form_for @post, url: city_topic_posts_path(@city, @topic), html: { class: "business-rating" } do |f|
+            .business-form-field
+              = f.label :body, "Enter Your Reply"
+              = f.text_area :body, rows: "4", class: "form-control"
+            .review-form-submit
+              = f.submit "Reply", class: "btn write-review"

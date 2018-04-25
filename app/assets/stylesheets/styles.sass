@@ -1,0 +1,2493 @@
+$yelp_red_lite: #EB2B2B
+$yelp_red: #d32323
+$yelp_red_dark: #bd1f1f
+$yelp_red_darker: #a71c1c
+$white: #fff
+$lite_gray: #eee
+$med_gray: #ccc
+$med_gray2: #999
+$med_gray3: #666
+$dark_gray: #333
+$orange: #fe5b18
+$lite_orange: #FEB018
+$yellow: #FED718
+$lite_green: #c4f3a4
+$med_green: #41a700
+$dark_green: #348c42
+$lite_blue: #f0f3f8
+$link_blue: #337ab7
+$dark_blue: #2A6190
+
+html
+  font-family: "Helvetica Neue", Helvetica, Ariel, sans-serif
+  height: 100%
+  box-sizing: border-box
+
+body
+  min-width: 1000px
+  min-height: 100%
+  position: relative
+  padding-bottom: 325px
+
+.alert
+  margin: 30px 0
+  letter-spacing: 1.2px
+  color: $med_gray3
+.alert-error
+  background-color: #FDBDBD
+.alert-notice
+  background-color: #BBFFC3
+
+ul
+  padding: 0
+  li
+    list-style: none
+
+h2
+  color: $yelp_red
+
+hr.line-break
+  border-top-color: $med_gray
+.vertical-divider
+  border-left: 1px solid $med_gray
+  margin: 0 5px
+
+.category-arrow
+  color: $med_gray2
+
+.select_credit_card_date
+  display: block
+  margin-bottom: 30px
+  select
+    width: 48%
+    display: inline-block
+    + select
+      margin-left: 2%
+
+.section-wrapper
+  max-width: 1055px
+
+.ui-index
+  padding: 30px 100px
+.ui-business-profile, .ui-event-profile
+  padding: 30px 0 30px 100px
+.ui-photos-gallery
+  padding: 30px 100px
+
+.ui-index, .ui-business-profile, .ui-write-review, .ui-event-profile, .ui-photos-gallery
+  h3
+    margin: 0
+    color: $yelp_red
+    text-align: center
+  h4.main-section-businesses-header, h4.main-section-reviews-header
+    margin: 0 0 20px 0
+    color: $yelp_red
+    text-align: center
+  h4.main-section-businesses-header
+    font-size: 17px
+  h4.main-section-reviews-header
+    font-size: 19px
+.ui-photos-gallery
+  h3
+    padding-bottom: 10px
+    margin-bottom: 20px
+    border-bottom: 1px solid $med_gray2
+  .user-photos-header
+    margin-bottom: 10px
+    h3
+      text-align: left
+      font-size: 20px
+    h4
+      margin: 0 0 5px 0
+      font-size: 14px
+
+
+.picture-thumbnail-gallery
+  margin-top: 20px
+  text-align: center
+  a
+    box-sizing: border-box
+    display: inline-block
+    margin: 0 20px 20px 0
+    border: 1px solid $med_gray2
+    border-radius: 3px
+    img
+      border-radius: 3px
+    &:hover
+      opacity: 0.75
+
+
+.ui-event-profile
+  h5, .business-info.event-info h5
+    margin: 0
+    a
+      color: currentColor
+  .business-info.event-info h5:last-of-type
+    margin-bottom: 15px
+  .business-info-events
+    padding-bottom: 30px
+
+.ui-write-review
+  padding: 30px 45px 30px 100px
+  h3
+    text-align: left
+    font-size: 17px
+    padding-bottom: 10px
+    margin-bottom: 10px
+    border-bottom: 1px solid $med_gray
+  textarea
+    resize: none
+.navbar-top
+  padding: 20px 100px
+  background-color: $yelp_red
+  color: #fff
+  a, a:hover
+    color: currentColor
+    text-decoration: none
+  .login-buttons
+    display: inline-block
+.navbar-bottom
+  padding: 0 100px
+  background-color: $yelp_red_dark
+  color: $white
+  a, a:hover
+    color: currentColor
+  ul.navbar-bottom-links
+    margin: 0 0 0 -10px
+    padding: 0
+  .navbar-item
+    + .navbar-item
+      margin-left: 20px
+  .navbar-item-link
+    a
+      display: block
+      height: 100%
+      padding: 5px 10px
+      &:hover
+        background-color: $yelp_red_darker
+        text-decoration: none
+.navbar-item
+  display: inline-block
+.navbar-top-item
+  vertical-align: middle
+  form
+    line-height: normal
+.navbar-logo
+  font-size: 20px
+  a:hover
+    text-decoration: none
+.search-form
+  margin: 0 20px
+.double-input-bar
+  background-color: $white
+  border-radius: 3px
+  .double-input-bar-text-fields, .double-input-bar-submit
+    display: inline-block
+    padding: 5px
+    height: 100%
+    vertical-align: middle
+  label
+    margin: 0 0 0 5px
+    color: $dark_gray
+  input[type="text"], select
+    color: $dark_gray
+    border-style: none
+    &:focus
+      outline: none
+  select
+    background-color: $white
+  .double-input-bar-submit
+    position: relative
+    left: 2px
+    box-sizing: border-box
+    height: 32px
+    background-color: $yelp_red_dark
+    border-top-right-radius: 3px
+    border-bottom-right-radius: 3px
+    &:hover
+      background-color: $yelp_red_darker
+    .search-bar-button
+      height: 100%
+      border-style: none
+      background-color: inherit
+      font-size: 16px
+.nav-icons
+  a:hover
+    text-decoration: none
+  .nav-icon
+    padding: 3px 10px
+    &:hover
+      background-color: $yelp_red_darker
+      border-radius: 3px
+  .glyphicon
+    font-size: 20px
+  .btn-group
+    button
+      padding: 5px 10px
+      background-color: $yelp_red_dark
+      border-style: none
+      color: $white
+      &:hover
+        background-color: $yelp_red_darker
+
+
+footer
+  position: absolute
+  right: 0
+  bottom: 0
+  left: 0
+  height: 325px
+  background-color: $lite_gray
+  border-top: 1px solid $med_gray
+.footer-wrapper
+  padding: 40px 100px
+  max-width: 1055px
+.footer-links
+  margin-bottom: 30px
+.footer-links-col
+  display: inline-block
+  width: 24.5%
+  box-sizing: border-box
+  padding-right: 20px
+  vertical-align: top
+  h4
+    color: $yelp_red
+  ul
+    padding: 0
+    list-style: none
+  &:last-of-type
+    padding-right: 0
+h5.footer-copyright
+  text-align: center
+
+
+.businesses-list
+  padding-left: 0
+  li
+    padding: 15px 0
+    list-style: none
+    &:first-child
+      padding-top: 0
+    + li
+      border-top: 1px solid $lite_gray
+    .business-list-address
+      padding-top: 10px
+    .business-last-review
+      margin-top: 15px
+      position: relative
+      .user-icon-small
+        position: absolute
+        top: 0
+        left: 0
+        height: 30px
+        width: 30px
+        background-color: $med_gray2
+        border-radius: 3px
+        a.btn
+          padding: 0
+          width: 100%
+          .glyphicon
+            line-height: 30px
+            width: 100%
+            color: $white
+            font-size: 15px
+          img
+            width: 100%
+            height: 100%
+            border-radius: 3px
+      p
+        padding: 0 40px
+        font-size: 12px
+
+.businesses-list-home
+  margin-left: -3%
+  li
+    width: 30%
+    border: 1px solid $med_gray
+    border-radius: 3px
+    display: inline-block
+    margin-left: 3%
+    margin-bottom: 25px
+    .icon-wrapper
+      height: 170px
+      display: block
+      .business-list-icon
+        height: 100%
+        width: 100%
+        border-bottom-left-radius: 0
+        border-bottom-right-radius: 0
+        overflow: hidden
+        .glyphicon
+          font-size: 40px
+          position: relative
+          top: 50%
+          transform: translateY(-50%)
+        img
+          object-fit: cover
+    .business-list-details-main
+      padding: 15px
+      h4
+        margin-top: 0
+
+.reviews-list-home
+  li
+    vertical-align: top
+    .recent-activity-reviewer-info
+      display: block
+      position: relative
+      margin: 0
+      padding: 15px 15px 10px 55px
+      .user-icon-small
+        position: absolute
+        top: 15px
+        left: 15px
+        height: 30px
+        width: 30px
+        background-color: $med_gray2
+        border-radius: 3px
+        a.btn
+          padding: 0
+          width: 100%
+          .glyphicon
+            line-height: 30px
+            width: 100%
+            color: $white
+            font-size: 15px
+          img
+            width: 100%
+            height: 100%
+            border-radius: 3px
+      b, span
+        display: block
+        line-height: 1em
+    .icon-wrapper
+      height: 120px
+      .business-list-icon
+        border-radius: 0
+        margin: 0
+        img
+          border-radius: 0
+    .business-list-details-main
+      h4
+        padding-bottom: 10px
+        font-size: 15px
+        border-bottom: 1px solid $med_gray
+      p
+        padding: 8px 0
+        border-bottom: 1px solid $med_gray
+        color: $med_gray3
+    .review-footer
+      .review-footer-buttons
+        a.btn
+          padding: 6px
+          font-size: 11px
+
+
+.business-list-icon, .business-list-details, .business-list-address, .write-review-business-details
+  display: inline-block
+  vertical-align: top
+.business-list-icon
+  margin-right: 10px
+  height: 90px
+  width: 90px
+  background-color: $yelp_red
+  border-radius: 3px
+  a
+    display: block
+    margin: 0
+    padding: 0
+    border: 0
+    height: 100%
+    width: 100%
+    span
+      display: block
+      line-height: 90px
+      width: 100%
+      font-size: 30px
+      color: $white
+    img
+      width: 100%
+      height: 100%
+      border-radius: 3px
+.business-list-details
+  width: 300px
+.business-list-address
+  h5
+    margin: 0 0 10px 0
+  p
+    margin: 0
+.star-rating, .number-of-reviews
+  display: inline-block
+.star-rating
+  margin-right: 3px
+.star-box
+  box-sizing: border-box
+  display: inline-block
+  height: 20px
+  width: 20px
+  background-color: $med_gray
+  border-radius: 3px
+  margin-right: 2px
+  .glyphicon-star
+    position: relative
+    display: block
+    font-size: 15px
+    line-height: 20px
+    text-align: center
+    color: $white
+.star-box-starred-1
+  background-color: $yellow
+.star-box-starred-2
+  background-color: $lite_orange
+.star-box-starred-3
+  background-color: $orange
+.star-box-starred-4
+  background-color: $yelp_red_lite
+.star-box-starred-5
+  background-color: $yelp_red_dark
+
+.price-and-type
+  margin-top: 5px
+  a
+    padding-right: 5px
+  h6
+    margin: 3px 0
+    font-size: 15px
+    font-weight: normal
+
+.pagination-bar
+  padding: 10px 0
+  border-top: 1px solid $med_gray
+  border-bottom: 1px solid $med_gray
+  overflow: hidden
+  .current-page
+    float: left
+  .page-links
+    float: right
+    span
+      margin-left: 8px
+
+.top-gray-header
+  padding: 0
+  background-color: $lite_gray
+  border-bottom: 1px solid $med_gray
+  position: relative
+  // min-width: 1055px
+  h1, h3
+    margin: 10px 0
+  .topic-bar-wrapper
+    border-bottom: 1px solid $med_gray2
+    margin-bottom: 10px
+    overflow: hidden
+    h3, ul
+      vertical-align: top
+    h3
+      float: left
+      margin: 0
+      font-size: 18px
+    ul
+      float: right
+      li.city-selector
+        padding: 0 10px
+        display: inline-block
+      li.bullet
+        display: inline-block
+      li:last-child
+        padding-right: 0
+  .top-ten-bar-header, .business-profile-header, .event-profile-header
+    overflow: hidden
+    margin-bottom: 10px
+    h3
+      display: inline-block
+      float: left
+      margin: 0
+      padding: 10px 0
+      color: $dark_gray
+      font-size: 20px
+    h5
+      display: inline-block
+      float: right
+      font-size: 14px
+      font-weight: normal
+
+.event-profile-header
+  padding: 30px 100px
+  h1
+    margin-bottom: 0
+  h3.event-header-h3
+    float: none
+    padding: 0
+    a
+      color: $yelp_red_dark
+  .business-profile-info, .business-profile-header-buttons, .business-profile-add-image
+    vertical-align: top
+    display: inline-block
+    float: none
+  .business-profile-info
+    width: 600px
+    .price-and-type
+      display: block
+  .business-profile-header-buttons
+    margin-top: 15px
+    width: 250px
+
+
+.businesses-nav-header, .businesses-nav-footer
+  font-weight: bold
+.businesses-nav-list, .businesses-nav-footer
+  font-size: 12px
+.businesses-nav-list
+  padding: 10px 0
+  div
+    display: inline-block
+    width: 16%
+    a
+      display: block
+.business-options-nav
+  margin-top: 10px
+.business-option
+  position: relative
+  display: inline-block
+  + .business-option
+    margin-left: 10px
+  .btn-default:hover
+    background-color: $white
+    box-shadow: 0 2px 5px $med_gray
+  .btn-selected, .btn-selected:hover
+    background-color: $lite_green
+    border: 1px solid $med_green
+    color: $dark_green
+    z-index: 100
+  ul.dropdown-menu
+    position: absolute
+    top: 0
+    right: 0
+
+.business-profile-info, .business-profile-header-buttons, .business-profile-add-image
+  display: inline-block
+.business-profile-info
+  float: left
+  h1
+    a
+      color: currentColor
+  .star-box
+    height: 24px
+    width: 24px
+    .glyphicon-star
+      left: 1px
+      font-size: 18px
+      line-height: 24px
+  .number-of-reviews, .price-and-type
+    font-size: 16px
+.business-profile-header-buttons
+  float: right
+  margin-top: 30px
+.business-profile-add-image
+  float: right
+  .add-image-form
+    margin-top: 35px
+.business-gray-header
+  margin-bottom: 50px
+.categories-gray-header-wrapper
+  padding: 20px 100px
+.business-gray-header-wrapper
+  position: relative
+  padding: 20px 100px 220px 100px
+.business-gray-photos-header-wrapper
+  padding: 20px 100px
+  .map-and-address
+    display: none
+.map-and-address
+  padding: 8px
+  border-radius: 3px
+  border: 1px solid $med_gray
+  background-color: #fff
+  position: absolute
+  left: 100px
+  bottom: -15px
+  .business-address-phone
+    margin-top: 8px
+    padding-bottom: 1px
+  iframe
+    border-radius: 3px
+    border: 1px solid $med_gray
+.business-profile-header-pics
+  clear: both
+  display: block
+  position: absolute
+  bottom: 0
+  right: 100px
+  font-size: 0
+  .header-pic-link-container
+    height: 200px
+    width: 200px
+    vertical-align: middle
+    display: inline-block
+  a
+    display: block
+    position: relative
+    top: 50%
+    transform: translateY(-50%)
+    overflow: hidden
+    height: 100%
+    width: 100%
+    background-color: $med_gray2
+    transition: all 0.2s
+    img
+      height: 100%
+    &.pic-icon-fading
+      z-index: 25
+    &.pic-icon-large
+      height: 230px
+      width: 230px
+      z-index: 50
+    .pic-icon-all
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background-color: rgba(0, 0, 0, .6)
+      text-align: center
+      div
+        position: relative
+        top: 50%
+        transform: translateY(-50%)
+        h5
+          display: block
+          color: $white
+          font-size: 17px
+
+.pictures-header
+  border-bottom: 1px solid $med_gray2
+  margin-bottom: 20px
+.photo-modal
+  display: none
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  text-align: center
+  z-index: 1000
+  .photo-dark-layer
+    background-color: rgba(0, 0, 0, .5)
+    z-index: 1100
+    width: 100%
+    height: 100%
+  .photo-wrapper
+    position: fixed
+    top: 30px
+    left: 30px
+    bottom: 30px
+    right: 30px
+    min-height: 320px
+    padding-top: 30px
+    background-color: black
+    border-radius: 5px
+    text-align: center
+    max-height: 100%
+    overflow: hidden
+    .photo-col
+      width: 100%
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      display: inline-block
+      padding-right: 200px
+      img
+        height: 100%
+        width: 100%
+        object-fit: contain
+        position: relative
+        top: 50%
+        transform: translateY(-50%)
+        border-radius: 3px
+      .glyphicon
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        color: $white
+        font-size: 20px
+        z-index: 2000
+        &:hover
+          color: $yelp_red
+      .glyphicon-chevron-left
+        left: 20px
+      .glyphicon-chevron-right
+        right: 220px
+    .photo-info-col
+      position: absolute
+      top: 0
+      bottom: 0
+      right: 0
+      padding: 15px 10px
+      background-color: $white
+      width: 200px
+      text-align: left
+      .user-info
+        .user-icon-small
+          height: 40px
+          width: 40px
+          vertical-align: top
+          background-color: $med_gray
+          border-radius: 3px
+          display: inline-block
+          a.btn
+            padding: 0
+            width: 100%
+            .glyphicon
+              line-height: 40px
+              width: 100%
+              color: $white
+              font-size: 20px
+            img
+              width: 100%
+              height: 100%
+              border-radius: 3px
+        .user-details
+          vertical-align: top
+          display: inline-block
+          padding-left: 10px
+          width: 120px
+          h4
+            margin: 0 0 5px 0
+            font-size: 15px
+          .user-thumb-stats
+            .user-thumb-stat
+              font-size: 12px
+              display: inline-block
+              margin-right: 5px
+              .glyphicon
+                color: $orange
+      small
+        margin-top: 10px
+        display: block
+      small.photo-date
+        color: $med_gray2
+
+.write-review
+  background-color: $yelp_red
+  border: 2px solid $yelp_red_dark
+  color: $white
+  font-weight: bolder
+  letter-spacing: 1px
+.btn.write-review:hover
+  background-color: $yelp_red_dark
+  color: $white
+  box-shadow: 0 2px 5px $med_gray
+
+.btn.new-conversation-button
+  width: 100%
+  text-align: center
+
+.btn-red
+  background-color: $yelp_red_dark
+  border: 2px solid $yelp_red_darker
+  color: $white
+  font-weight: bolder
+  letter-spacing: 1px
+.btn.btn-red:hover
+  background-color: $yelp_red_darker
+  color: $white
+
+.business-reviews, .business-sidebar, .write-review-main-column, .write-review-sidebar, .business-events
+  display: inline-block
+  vertical-align: top
+  textarea
+    resize: none
+.business-sidebar, .write-review-sidebar
+  width: 250px
+.business-reviews, .write-review-main-column, .business-events
+  width: 600px
+  h2
+    margin: 10px 0
+    font-size: 22px
+    font-weight: normal
+    strong
+      color: $yelp_red_dark
+      font-weight: bold
+
+.business-events
+  position: relative
+  h2
+    margin-top: 0
+    font-size: 18px
+    color: $yelp_red_dark
+  h5
+    margin: 0
+  p.event-description
+    border-top: 1px solid $med_gray
+    padding-top: 15px
+  .business-icon, .business-details
+    display: inline-block
+    float: left
+    margin-right: 5px
+    vertical-align: top
+  .business-icon
+    position: relative
+    margin-right: 20px
+    display: inline-block
+    background-color: $yelp_red_dark
+    height: 60px
+    width: 60px
+    border-radius: 3px
+    &:hover
+      background-color: $yelp_red
+      border-radius: 3px
+    .glyphicon
+      top: 7px
+      left: 2px
+      color: $white
+      font-size: 30px
+  .event-price, .event-date, .business-list-address
+    display: block
+
+.reviews-list
+  margin-right: 20px
+  ul
+    padding: 0
+    li
+      padding: 20px 0
+      border-top: 1px solid $med_gray
+      list-style: none
+      overflow: hidden
+.review-wrapper
+  margin-left: 150px
+.reviewer-info, .review-content
+  display: inline-block
+  vertical-align: top
+.reviewer-info
+  position: absolute
+  top: 0
+  left: 0
+  width: 150px
+  margin-left: -150px
+  .reviewer-icon, .reviewer-details
+    display: inline-block
+    float: left
+    margin-right: 5px
+    vertical-align: top
+  .reviewer-icon
+    display: inline-block
+    background-color: $med_gray
+    height: 60px
+    width: 60px
+    border-radius: 3px
+    &:hover
+      background-color: $med_gray2
+      border-radius: 3px
+    a.btn
+      padding: 0
+      width: 100%
+      .glyphicon
+        line-height: 60px
+        width: 100%
+        color: $white
+        font-size: 30px
+      img
+        width: 100%
+        height: 100%
+        border-radius: 3px
+  .reviewer-details
+    h5
+      margin: 0
+.review-content
+  float: right
+  width: 100%
+  padding: 0 20px
+
+.review-footer
+  margin-top: 15px
+  h5
+    font-size: 12px
+    font-weight: bold
+    color: $med_gray3
+  .btn-default
+    font-size: 12px
+    font-weight: bold
+    color: $med_gray3
+    span
+      margin-left: 5px
+      font-weight: normal
+    &:hover
+      background-color: $white
+      box-shadow: 0 2px 5px $med_gray
+  .btn.review-stat-selected
+    color: $link_blue
+    border-color: $link_blue
+
+.review-date
+  display: inline-block
+  margin-left: 5px
+  span
+    font-size: 15px
+    color: $med_gray3
+.review-text
+  margin: 10px 0
+
+.business-info
+  padding-left: 20px
+  border-left: 1px solid $med_gray
+  h5
+    margin: 10px 0 15px 0
+    font-size: 18px
+    font-weight: bold
+    color: $yelp_red_dark
+.business-info-hours, .business-info-events
+  ul
+    padding: 0
+    li
+      list-style: none
+      b
+        display: inline-block
+        width: 50px
+        text-align: left
+  .glyphicon
+    margin-right: 10px
+    color: $link_blue
+.business-info-events
+  li.business-event-list-item
+    a
+      color: $dark_gray
+.more-business-info, .business-info-hours
+  margin-top: 30px
+.more-business-info
+  ul
+    padding: 0
+    li
+      list-style: none
+      b
+        display: inline-block
+        padding-left: 20px
+
+.business-info-box
+  padding: 10px
+  margin-bottom: 20px
+  background-color: $lite_gray
+  border: 1px solid $med_gray
+  border-radius: 3px
+  dl
+    margin: 0
+    dt, dd
+      display: inline-block
+      padding: 10px 0
+    dt
+      width: 15%
+    dd
+      border-bottom: 1px solid $med_gray
+      width: 83%
+  dl:last-child
+    dd
+      border: none
+
+.write-review-business-header
+  .business-list-icon
+    height: 70px
+    width: 70px
+    a
+      span
+        line-height: 70px
+        font-size: 20px
+        color: $white
+      img
+        height: 100%
+        width: 100%
+        border-radius: 3px
+  .write-review-business-details
+    h4
+      margin: 0
+      font-size: 14px
+      font-weight: bold
+    p
+      margin: 0
+    .price-and-type, .business-address
+      font-size: 12px
+
+.write-review-content-box
+  padding: 15px
+  border: 1px solid $med_gray2
+  border-radius: 3px
+  box-shadow: inset 0 0 7px $med_gray
+  .star-box
+    height: 24px
+    width: 24px
+    &:hover
+      cursor: pointer
+    .glyphicon-star
+      left: 1px
+      font-size: 18px
+      line-height: 24px
+
+  textarea
+    width: 100%
+    resize: none
+    padding: 10px 0
+    border-style: none
+    border-top: 1px solid $med_gray
+    &:focus
+      outline: none
+
+.survey-questions
+  margin-top: 20px
+.survey-question
+  padding: 10px
+  border-top: 1px solid $med_gray
+  h5
+    margin: 0 0 5px 0
+    font-weight: bold
+  label
+    font-weight: normal
+    margin: 0 10px 0 0
+  &:nth-of-type(odd)
+    background-color: $lite_gray
+
+.review-form-submit
+  margin-top: 30px
+  .write-review
+    font-size: 13px
+    margin-right: 20px
+  a
+    font-size: 13px
+    margin-right: 20px
+.image-form-submit
+  margin-top: 10px
+
+aside
+  margin-top: 10px
+  color: $med_gray2
+  font-size: 12px
+
+.write-review-main-column
+  padding-right: 10px
+  position: relative
+.write-review-sidebar
+  padding-left: 10px
+  border-left: 1px solid $med_gray
+
+.reviews-sidebar-list
+  ul
+    padding: 0
+    li
+      padding: 10px 0
+      margin-bottom: 10px
+      list-style: none
+      border-bottom: 1px solid $med_gray
+      .reviewer-icon, .reviewer-details
+        display: inline-block
+        margin-right: 5px
+        vertical-align: top
+      .reviewer-icon
+        background-color: $med_gray
+        height: 40px
+        width: 40px
+        border-radius: 3px
+        &:hover
+          background-color: $med_gray2
+          border-radius: 3px
+        a.btn
+          padding: 0
+          width: 100%
+          .glyphicon
+            line-height: 40px
+            width: 100%
+            color: $white
+            font-size: 20px
+          img
+            width: 100%
+            height: 100%
+            border-radius: 3px
+      .reviewer-details
+        h5
+          margin: 0
+      .review-content
+        float: none
+        padding: 10px 0 0 0
+        p
+          font-size: 13px
+          line-height: 1.2em
+      &:last-child
+        border-bottom: none
+
+.ui-form-page
+  padding: 0 100px 40px 100px
+  width: 600px
+  h1
+    font-size: 24px
+  h2
+    font-size: 24px
+    color: $yelp_red_dark
+  input, select
+    margin-bottom: 15px
+
+.user-gray-header
+  padding: 10px 50px 20px 100px
+  background-color: $lite_gray
+  border-bottom: 1px solid $med_gray
+.user-profile-header
+  position: relative
+  .user-icon, .user-info, .interact-with-user
+    box-sizing: border-box
+    display: inline-block
+    vertical-align: top
+  .user-icon, .user-info
+    .glyphicon
+      color: $yelp_red_dark
+    .your-profile-page-icon
+      color: $link_blue
+  .interact-with-user
+    width: 180px
+    padding-left: 20px
+    ul
+      padding: 0
+      li
+        list-style: none
+        margin-bottom: 10px
+    .glyphicon
+      color: $link_blue
+  .user-info
+    margin-left: 200px
+    width: 450px
+    border-right: 1px solid $med_gray2
+  .user-icon
+    position: absolute
+    top: 5px
+    background-color: $med_gray
+    height: 170px
+    width: 170px
+    border-radius: 3px
+    .glyphicon
+      line-height: 170px
+      width: 100%
+      font-size: 80px
+      text-align: center
+    img
+      width: 100%
+      height: 100%
+      border: 1px solid $med_gray
+      border-radius: 3px
+  h1
+    margin: 0
+  h4
+    font-weight: normal
+  .user-header-stat
+    display: inline-block
+    margin-right: 20px
+  .user-profile-tagline
+    font-size: 16px
+    margin: 15px 0 0 0
+    min-height: 22px
+
+.ui-user-profile
+  padding: 20px 45px 20px 100px
+  .user-left-sidebar, .user-right-sidebar, .user-main-content, .user-main-content-wide
+    box-sizing: border-box
+    display: inline-block
+    vertical-align: top
+  .user-left-sidebar
+    width: 170px
+    padding: 20px 0
+    margin-right: 30px
+    h2
+      font-size: 18px
+      margin: 0 0 15px 0
+    ul
+      padding: 0
+      li
+        list-style: none
+        border-top: 1px solid $med_gray
+        &:last-child
+          border-bottom: 1px solid $med_gray
+        a
+          display: block
+          padding: 10px
+          font-size: 14px
+          font-weight: bold
+          color: $med_gray3
+          &:hover
+            text-decoration: none
+            background-color: $lite_gray
+        a.user-current-tab
+          background-color: $lite_gray
+          border-left: 4px solid $yelp_red_dark
+  .user-right-sidebar
+    width: 180px
+    padding-left: 20px
+    h2
+      margin: 0
+      font-size: 18px
+      color: $yelp_red_dark
+    h3
+      margin: 0 0 10px 0
+      font-size: 16px
+    .user-rating-sidebar-stats
+      margin-top: 10px
+      padding-top: 10px
+      border-top: 1px solid $med_gray
+      h4
+        font-size: 14px
+        font-weight: normal
+      ul
+        padding: 0
+        li
+          list-style: none
+          .glyphicon
+            color: $med_gray2
+          b
+            margin-right: 10px
+
+.admin-delete-link
+  clear: both
+  display: block
+  padding-top: 10px
+
+.user-main-content
+  width: 450px
+  padding-right: 15px
+  border-right: 1px solid $med_gray2
+.user-main-content-wide
+  width: 650px
+.user-main-content, .user-main-content-wide, .business-events-attending, .all-users-list
+  h2
+    margin-top: 0
+    font-size: 18px
+    color: $yelp_red_dark
+  .business-icon, .business-details, .friend-icon, .friend-details
+    display: inline-block
+    float: left
+    margin-right: 5px
+    vertical-align: top
+  .business-icon, .friend-icon
+    margin-right: 20px
+    display: inline-block
+    background-color: $yelp_red_dark
+    height: 60px
+    width: 60px
+    border-radius: 3px
+    &:hover
+      background-color: $yelp_red
+      border-radius: 3px
+    a.btn
+      padding: 0
+      width: 100%
+      .glyphicon
+        line-height: 60px
+        width: 100%
+        color: $white
+        font-size: 30px
+      img
+        height: 100%
+        width: 100%
+        border-radius: 3px
+  ul
+    li
+      padding: 15px 0
+      border-top: 1px solid $med_gray
+      overflow: hidden
+      h5
+        margin: 0
+        font-weight: bold
+      h6
+        margin: 5px 0
+      .price-and-type, .business-list-address
+        font-size: 14px
+        p
+          margin: 0
+      .review-content
+        margin-top: 20px
+        padding: 0
+      .review-footer
+        h5
+          margin-bottom: 10px
+      .friend-thumb-stat
+        display: inline-block
+        font-size: 12px
+        .glyphicon
+          color: $orange
+        b
+          color: $med_gray2
+        + .friend-thumb-stat
+          margin-left: 5px
+  .user-friends, .event-attendees
+    border-top: 1px solid $med_gray
+  .user-friends, .user-make-friends
+    ul
+      li
+        display: inline-block
+        width: 30%
+        margin-right: 1%
+        margin-bottom: 10px
+        border: none
+  .event-attendees
+    ul
+      li
+        vertical-align: top
+        display: inline-block
+        width: 48%
+        margin-right: 1%
+        margin-bottom: 10px
+        border: none
+        .friend-details
+          h5
+            a
+              color: $link_blue
+.user-bookmarks, .user-events
+  ul
+    li
+      .review-content
+        margin-top: 5px
+  .business-list-address
+    display: block
+
+.user-main-content-businesses
+  position: relative
+
+.all-users-list
+  padding: 0 100px 40px 100px
+
+.choose-city-bar
+  padding: 0 100px
+  h3
+    color: $yelp_red_dark
+    text-align: center
+  ul
+    border-bottom: 1px solid $med_gray2
+    text-align: center
+    li.city-selector, li.bullet
+      display: inline-block
+      color: $med_gray3
+    li.city-selector
+      padding: 3px 20px
+      a
+        font-size: 16px
+        color: $med_gray3
+        text-decoration: none
+        &:hover
+          color: $dark_gray
+
+.choose-city-topic-bar
+  padding: 20px 100px
+  .topic-bar-wrapper
+    border-bottom: 1px solid $med_gray2
+    overflow: hidden
+    h3, ul
+      vertical-align: top
+    h3
+      float: left
+      margin: 0
+      font-size: 18px
+    ul
+      float: right
+      li.city-selector
+        padding-left: 25px
+        display: inline-block
+
+.user-review, .user-bookmark, .user-event, .review-wrapper
+  position: relative
+.edit-review-link, .right-float-link
+  position: absolute
+  top: 0
+  right: 5px
+.feed-review
+  h4
+    margin-bottom: 15px
+    font-size: 16px
+    color: $yelp_red_dark
+
+.user-event
+  .review-date
+    margin-left: 0
+
+.empty-list
+  display: block
+  margin: 15px 0
+
+.empty-list-2
+  display: block
+  text-align: center
+  font-weight: bold
+
+.go-make-friends
+  margin: 40px 0
+
+header
+  padding: 0
+
+.btn.write-review.your-business
+  background-color: $link_blue
+  &:hover
+    background-color: $dark_blue
+
+.event-sidebar-option
+  display: block
+
+#event_start_time_1i,
+#event_start_time_4i
+  width: 70px
+
+#event_start_time_2i
+  width: 100px
+
+#event_start_time_3i,
+#event_start_time_5i
+  width: 50px
+
+.form-choose-date select
+  display: inline-block
+
+.create-event-content
+  input[type="text"], textarea
+    margin-bottom: 15px
+  textarea
+    resize: none
+
+.added-right-margin
+  display: inline-block
+  margin-right: 20px
+
+.business-form-field, .user-form-field
+  margin-top: 15px
+
+.select-business-hours
+  display: block
+  width: 100%
+  .business-form-field
+    display: inline-block
+    width: 31%
+    label
+      display: block
+    select.day-select
+      width: 130px
+    select.time-select
+      display: inline-block
+      width: 70px
+
+.business-address-phone
+  margin-top: 15px
+  h6
+    margin: 0
+    font-size: 15px
+    font-weight: normal
+
+.user-reviews
+  dl:first-of-type
+    border-top: 1px solid $med_gray
+    padding-top: 15px
+
+
+.talk-forum
+  padding: 0 45px 0 100px
+  h3.choose-a-city
+    text-align: center
+    margin-bottom: 100px
+
+.talk-forum-sidebar, .talk-forum-content
+  padding-bottom: 40px
+  display: inline-block
+  vertical-align: top
+.talk-forum-sidebar
+  width: 250px
+  padding-right: 30px
+  a.topic-current-tab
+    background-color: $lite_gray
+    border-left: 4px solid $yelp_red_dark
+  .new-topic-option
+    margin-bottom: 30px
+  h3
+    font-size: 18px
+  ul.topic-categories
+    border-top: 1px solid $med_gray
+    li
+      border-bottom: 1px solid $med_gray
+      a
+        width: 100%
+        display: block
+        padding: 10px
+        color: currentColor
+        &:hover
+          text-decoration: none
+          background-color: $lite_gray
+.talk-forum-content
+  width: 600px
+.conversations-content
+  width: 100%
+.talk-forum-content, .conversations-content
+  ul.topics-list, ul.posts-list, ul.conversations-list, ul.messages-list
+    li
+      padding: 15px 10px
+      border-bottom: 1px solid $med_gray
+      overflow: hidden
+      .user-icon
+        height: 60px
+        width: 60px
+        a.btn
+          padding: 0
+          width: 100%
+          .glyphicon
+            line-height: 60px
+            width: 100%
+            color: $white
+            font-size: 30px
+          img
+            width: 100%
+            height: 100%
+            border-radius: 3px
+      .user-icon-small
+        height: 40px
+        width: 40px
+        a.btn
+          padding: 0
+          width: 100%
+          .glyphicon
+            line-height: 40px
+            width: 100%
+            color: $white
+            font-size: 20px
+          img
+            width: 100%
+            height: 100%
+            border-radius: 3px
+      .user-icon, .user-icon-small
+        display: inline-block
+        float: left
+        margin-right: 10px
+        vertical-align: top
+        background-color: $med_gray
+        border-radius: 3px
+        &:hover
+          background-color: $med_gray2
+          border-radius: 3px
+      .conversation-list-item-checkbox
+        float: left
+        margin-right: 20px
+        input[type='checkbox']
+          margin: 0
+          height: 40px
+      .topic-summary, .conversation-summary-sender, .conversation-summary-message
+        float: left
+        h4
+          margin: 0 5px 5px 0
+          font-size: 16px
+        h5
+          margin: 0
+          font-weight: normal
+        small
+          color: $med_gray2
+      .topic-summary
+        width: 450px
+      .conversation-summary-sender, .conversation-summary-message
+        margin-left: 20px
+      .conversation-summary-sender
+        width: 100px
+      .post-user-info, .message-user-info
+        width: 150px
+      .message-user-info
+        margin-right: 30px
+      .message-time
+        float: right
+        small
+          color: $med_gray2
+          display: block
+      .post-user-info, .message-user-info, .message-info
+        float: left
+        h4
+          margin: 0 0 5px 0
+          font-size: 15px
+        h6
+          margin: 0
+      .message-info
+        width: 450px
+      .post-summary
+        float: left
+        width: 350px
+        small
+          color: $med_gray2
+      .number-of-replies
+        text-align: right
+        float: right
+        span
+          font-size: 12px
+        small
+          display: block
+          color: $med_gray2
+    li.unread-message
+      background-color: $lite_blue
+      .conversation-summary-message
+        h5
+          font-weight: bold
+
+ul.conversations-list, ul.messages-list
+  border-top: 1px solid $med_gray
+
+.topic-header
+  padding-bottom: 10px
+  border-bottom: 1px solid $med_gray
+.topic-header, .conversation-header
+  h2
+    margin: 0 0 5px 0
+    font-size: 16px
+    color: $yelp_red_dark
+
+.conversations-header-bar
+  position: relative
+  padding: 20px 100px 0 100px
+  h3
+    margin: 0 0 20px 0
+    font-size: 20px
+    color: $yelp_red_dark
+  .conversations-bar-wrapper
+    position: relative
+    top: 1px
+    overflow: hidden
+    a
+      vertical-align: bottom
+    a.conversations-header-tab
+      box-sizing: border-box
+      display: inline-block
+      float: left
+      line-height: 31px
+      padding: 0 10px
+      color: $med_gray2
+      font-weight: bold
+      &:hover
+        text-decoration: none
+    a.conversations-header-tab.selected-tab
+      border-bottom: 3px solid $yelp_red_dark
+      color: $dark_gray
+    .new-conversation-link
+      float: right
+      a.write-review
+        font-size: 12px
+  hr.line-break
+    margin-top: 0
+
+.conversations-page, .conversation-page
+  padding: 0 100px 50px 100px
+  .no-messages-message
+    padding-left: 100px
+
+.message-header-bar
+  position: relative
+  padding: 20px 100px
+  overflow: hidden
+  .message-header
+    float: left
+    h3
+      margin-top: 0
+      color: $yelp_red_dark
+      font-size: 18px
+    h6
+      font-size: 14px
+      font-weight: normal
+  .back-to-inbox
+    float: right
+
+.conversation-thumb-stat
+  display: inline-block
+  font-size: 12px
+  .glyphicon
+    color: $orange
+  b
+    color: $med_gray2
+  + .conversation-thumb-stat
+    margin-left: 5px
+
+.delete-conversation-submit
+  a, span
+    font-size: 12px
+  input[type='submit']
+    margin-left: 15px
+.delete-conversation-submit-top
+  margin-bottom: 15px
+.delete-conversation-submit-bottom
+  margin-top: 15px
+
+
+.footer-message-modal
+  display: none
+  position: relative
+  .dark-layer
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-color: rgba(0, 0, 0, 0.5)
+    z-index: 5000
+  .footer-message
+    padding: 20px
+    box-sizing: border-box
+    position: fixed
+    top: 30%
+    left: 50%
+    margin: 0 0 0 -175px
+    height: 100px
+    width: 350px
+    border: 4px solid $yelp_red_dark
+    border-radius: 3px
+    background-color: $white
+    z-index: 9999
+    h3
+      margin: 0
+      color: $yelp_red_dark
+      vertical-align: middle
+      text-align: center
+
+h3.business-details
+  margin-top: 30px
+
+.oops
+  margin: 40px 0
+
+.grayed-link
+  color: $med_gray2
+
+.btn.nav-icon.navbar-logo-small
+  display: none
+
+.navbar-item-link-home
+  display: none
+
+input[type="submit"].processing_payment,
+input[type="submit"].processing_payment:hover
+  background: #777
+  box-shadow: none
+  cursor: default
+p.test_card_notice
+  font-size: 14px
+  color: #666
+  padding-bottom: 10px
+  border-bottom: 1px solid #666
+  margin-bottom: 20px
+  a
+    color: inherit
+    font-weight: bold
+
+section.test_cards_section
+  display: block
+  width: 400px
+  margin: 0 auto
+  padding-bottom: 50px
+  text-align: center
+  h1.test_cards_header
+    margin-bottom: 30px
+    font-size: 30px
+    border-bottom: 1px solid #555
+  h4.test_card_category_header
+    font-size: 24px
+    color: #bd1f1f
+  ul.test_cards
+    padding: 0 0 20px 50px
+    li
+      margin-bottom: 10px
+      font-size: 16px
+      .test_card_number
+        display: inline-block
+        width: 200px
+        text-align: left
+        span
+          color: #555
+      b
+        width: 100px
+        display: inline-block
+        text-align: left
+
+
+
+@media(max-width: 1075px)
+  body
+    min-width: 950px
+  .navbar-top, .navbar-bottom, .choose-city-bar, .choose-city-topic-bar,
+  .categories-gray-header-wrapper, .event-profile-header, .user-gray-header,
+  .business-gray-photos-header-wrapper, .talk-forum, .ui-user-profile, .ui-index,
+  .ui-business-profile, .ui-event-profile, .ui-photos-gallery, .ui-write-review,
+  .business-gray-header-wrapper, .all-users-list, .ui-photos-gallery, .footer-wrapper
+    max-width: 1075px
+    padding-left: 50px
+    padding-right: 50px
+  section.content
+    .map-and-address
+      left: 50px
+    .top-gray-header
+      max-width: 1075px
+      min-width: inherit
+    .user-gray-header
+      .user-info
+        box-sizing: border-box
+        width: 51%
+        margin-left: 25%
+      .interact-with-user
+        box-sizing: border-box
+        width: 22%
+        font-size: 12px
+    .event-profile-header
+      .business-profile-header-buttons
+        float: right
+    .choose-city-bar
+      padding: 0 50px
+      li.city-selector
+        padding: 3px 10px
+    .choose-city-topic-bar
+      padding: 10px 40px 20px 50px
+    .talk-forum
+      padding: 0 50px
+      .talk-forum-sidebar
+        width: 33%
+      .talk-forum-content
+        width: 65%
+        .topic-list-item
+          .topic-summary
+            width: 270px
+          .post-user-info
+            width: 130px
+          .post-summary
+            width: 200px
+      .write-review-main-column
+        width: 100%
+    .conversations-content
+      ul.messages-list
+        li
+          .message-info
+            width: 400px
+    .ui-user-profile
+      padding: 20px 40px 20px 50px
+      .user-left-sidebar
+        width: 25%
+        margin-right: 0
+        padding-right: 3%
+      .user-main-content
+        box-sizing: border-box
+        width: 50%
+      .user-main-content-wide
+        box-sizing: border-box
+        width: 74%
+        .user-friends
+          ul
+            li
+              box-sizing: border-box
+              vertical-align: top
+              margin-right: 0
+              padding-right: 10px
+              width: 49%
+      .user-right-sidebar
+        width: 25%
+    .ui-index
+      padding: 30px 50px
+    .ui-business-profile, .ui-event-profile, .ui-photos-gallery
+      padding: 30px 40px 30px 50px
+      .business-reviews, .business-events
+        width: 69%
+      .business-sidebar
+        width: 30%
+        .business-info-box
+          dl
+            dt, dd
+              vertical-align: middle
+            dd
+              width: 80%
+    .business-profile-header-pics
+      right: 45px
+    .ui-write-review
+      padding: 30px 50px
+      .write-review-main-column, .write-review-sidebar
+        width: 100%
+      .write-review-sidebar
+        border: none
+        margin-top: 40px
+        padding: 0
+        .reviews-sidebar-list
+          li
+            .sidebar-reviewer-info, .review-content
+              display: inline-block
+            .sidebar-reviewer-info
+              width: 23%
+            .review-content
+              width: 75%
+              padding: 0
+    #event_start_time_1i,
+    #event_start_time_4i
+      width: 100px
+
+    #event_start_time_2i
+      width: 130px
+
+    #event_start_time_3i,
+    #event_start_time_5i
+      width: 70px
+
+@media(max-width: 980px)
+  body
+    min-width: 768px
+  header
+    .navbar-top
+      padding: 0 50px
+      text-align: center
+      .navbar-logo
+        display: none
+      .search-form
+        margin: 0 0 0 5px
+        padding: 20px 0
+      ul.dropdown-menu.navbar-dropdown
+        right: 0
+        left: auto
+    .navbar-bottom
+      padding: 0 50px
+      .navbar-bottom-links
+        text-align: center
+      .navbar-item
+        font-size: 13px
+      .navbar-item-link-removeable
+        display: none
+      .navbar-item-link-home
+        display: inline-block
+  section.content
+    .top-gray-header
+      min-width: 600px
+      max-width: 980px
+      .categories-gray-header-wrapper, .event-profile-header, .business-gray-photos-header-wrapper
+        padding: 10px 50px 20px 50px
+      .business-gray-header-wrapper
+        padding-left: 50px
+        padding-right: 50px
+      .businesses-nav-list
+        div
+          width: 24%
+    .event-profile-header
+      .business-profile-header-buttons
+        float: none
+    .user-gray-header
+      padding: 20px 40px 20px 50px
+      .user-icon
+        width: 22%
+        overflow: hidden
+        text-align: center
+        img
+          width: 100%
+          height: auto
+          position: relative
+          top: 50%
+          transform: translateY(-50%)
+      .user-info
+        box-sizing: border-box
+        width: 50%
+        margin-left: 25%
+      .interact-with-user
+        box-sizing: border-box
+        width: 22%
+        font-size: 12px
+    .user-make-friends
+      ul
+        li
+          vertical-align: top
+          .friend-icon
+            margin-right: 10px
+          .friend-details
+            width: 110px
+    .business-profile-header
+      .business-profile-info, .business-profile-header-buttons, .business-profile-add-image
+        display: block
+        float: none
+        width: 100%
+        text-align: left
+    .business-profile-header-pics
+      .header-pic-link-container.specific-pic:first-of-type
+        display: none
+    .business-profile-add-image
+      border-top: 1px solid $med_gray2
+      padding-top: 20px
+      margin-top: 20px
+      .add-image-form
+        margin-top: 0
+        width: 50%
+    .businesses-list-home
+      margin-left: -4.5%
+      li
+        width: 45%
+        margin-left: 4.5%
+    .conversations-content
+      ul.messages-list
+        li
+          .message-info
+            width: 350px
+    .ui-write-review
+      padding: 30px 50px
+      .write-review-main-column, .write-review-sidebar
+        width: 100%
+      .write-review-sidebar
+        border: none
+        margin-top: 40px
+        padding: 0
+    .conversations-page .conversations-content
+      form ul.conversations-list
+        li.conversation-list-item
+          .conversation-summary-message
+            width: 200px
+          .number-of-replies
+            width: 80px
+  .footer-wrapper
+    padding: 40px 50px
+
+@media(max-width: 900px)
+  section.content
+    .conversations-content
+      ul.messages-list
+        li
+          .message-info, .message-time, .user-icon, .message-user-info
+            display: inline-block
+            float: none
+            vertical-align: top
+          .message-info
+            margin-top: 20px
+            width: 75%
+          .message-time
+            margin-top: 20px
+            width: 20%
+            text-align: right
+  .top-gray-header
+    .topic-bar-wrapper
+      ul
+        float: left
+        li.city-selector:first-child
+          padding-left: 0
+  .footer-wrapper
+    padding: 40px 20px
+    .footer-links-col
+      width: 24%
+      h4
+        font-size: 15px
+      li
+        font-size: 12px
+
+@media(max-width: 780px)
+  body
+    min-width: 600px
+  header
+    .navbar-top
+      padding: 0 20px
+      .btn.nav-icon.navbar-logo-small
+        display: inline-block
+      .nav-icons
+        margin-left: 10px
+        display: block
+        position: relative
+        top: -9px
+        .btn-group
+          button
+            padding: 4px 10px
+      .login-buttons
+        position: relative
+        display: block
+        top: -9px
+    .navbar-bottom
+      padding: 0 20px
+      .navbar-item
+        font-size: 11px
+        + .navbar-item
+          margin-left: 10px
+  section.content
+    .business-profile-header-pics
+      right: 20px
+    .map-and-address
+      left: 20px
+    .talk-forum
+      .btn.new-conversation-button
+        font-size: 10px
+        padding: 6px
+      .talk-forum-content
+        li.topic-list-item
+          .user-icon
+            display: none
+          .topic-summary
+            h4
+              a
+                display: block
+              small
+                display: block
+                margin-top: 5px
+            h5
+              margin-top: 10px
+    .choose-city-bar
+      padding: 0 20px
+      h3
+        font-size: 18px
+      li.city-selector
+        a
+          font-size: 12px
+    .top-gray-header
+      min-width: 480px
+      max-width: 780px
+      .categories-gray-header-wrapper, .event-profile-header, .business-gray-photos-header-wrapper
+        padding: 10px 20px 20px 20px
+      .business-gray-header-wrapper
+        padding-left: 20px
+        padding-right: 20px
+      .business-options-nav
+        .btn
+          padding: 6px 8px
+          font-size: 12px
+      .business-profile-header
+        .business-profile-info, .business-profile-header-buttons, .business-profile-add-image
+          display: block
+          float: none
+          width: 100%
+          text-align: left
+    .user-gray-header
+      padding: 20px
+      .user-icon
+        .glyphicon
+          left: 22px
+    .conversations-header-bar
+      padding: 20px 20px 0 20px
+    .conversations-page
+      padding: 0 20px 50px 20px
+    .message-header-bar
+      padding: 20px
+    .conversation-page
+      padding: 0 20px 50px 20px
+      .write-review-main-column
+        width: 100%
+
+    .choose-city-topic-bar
+      padding: 10px 20px 20px 20px
+      .topic-bar-wrapper
+        li.city-selector
+          padding-left: 15px
+          font-size: 13px
+
+    .talk-forum
+      padding: 0 20px
+      .talk-forum-sidebar
+        .topic-categories
+          font-size: 12px
+      .talk-forum-content
+        .topics-list
+          h4
+            font-size: 15px
+        .topic-list-item
+          .post-user-info, .post-summary
+            width: 250px
+        .posts-list
+          .topic-list-item
+            .post-user-info, .post-summary
+              display: block
+              width: 100%
+            .post-user-info
+              overflow: hidden
+              h4, h6
+                display: inline-block
+              h4
+                float: left
+              h6
+                float: right
+            .post-summary
+              overflow: hidden
+              p, small
+                display: block
+                width: 100%
+              p
+                margin: 10px 0
+
+    .ui-index
+      padding: 30px 20px
+    .ui-user-profile
+      padding: 20px
+      .edit-review-link
+        font-size: 10px
+        right: 0
+      .user-left-sidebar
+        ul
+          li a
+            font-size: 12px
+    .ui-business-profile, .ui-event-profile, .ui-photos-gallery
+      padding: 30px 20px
+      .business-reviews
+        .reviews-list
+          li
+            .edit-review-link
+              font-size: 10px
+              right: 0
+            .review-content
+              padding-right: 0
+              .btn
+                padding: 5px
+                font-size: 10px
+      .business-sidebar
+        h5
+          font-size: 16px
+        .business-info-box, .business-info
+          font-size: 12px
+          h5
+            font-size: 12px
+          .business-info-hours
+            b
+              width: 30px
+  .photo-modal
+    .photo-wrapper
+      .photo-col
+        padding-right: 0
+        .glyphicon-chevron-right
+          right: 20px
+      .photo-info-col
+        display: none
+
+@media(max-width: 720px)
+  .business-profile-header-pics
+    bottom: -15px
+    .header-pic-link-container.specific-pic
+      display: none
+    .header-pic-link-container
+      width: 230px
+      height: 230px
+      a
+        border-radius: 3px
+        &.pic-icon-large
+          height: inherit
+          width: inherit
+
+@media(max-width: 700px)
+  .event-profile-header, .business-gray-header-wrapper
+    .business-profile-info
+      h1
+        font-size: 30px
+  .all-users-list
+    .user-make-friends
+      ul
+        li
+          width: 48%
+
+@media(max-width: 650px)
+  body
+    min-width: 480px
+  header
+    .navbar-top
+      padding: 0 10px
+    .navbar-bottom
+      .navbar-item
+        font-size: 12px
+      .navbar-item-link-removeable
+        display: none
+  section.content
+    .conversations-page .conversations-content
+      form ul.conversations-list
+        li.conversation-list-item
+          .conversation-summary-message, .number-of-replies, .user-icon-small, .conversation-summary-sender
+            float: none
+            margin-left: 0
+          .user-icon-small, .conversation-summary-sender, .conversation-summary-message
+            display: inline-block
+            vertical-align: top
+          .number-of-replies
+            clear: both
+            margin-top: 15px
+            width: 100%
+            display: block
+            text-align: right
+    .conversations-content
+      ul.messages-list
+        li
+          .message-info
+            width: 100%
+            p
+              margin-bottom: 0
+          .message-time
+            width: 100%
+            text-align: left
+    .talk-forum .talk-forum-content
+      li.topic-list-item
+        .topic-summary
+          width: 100%
+          float: none
+          h5
+            display: none
+            + small
+              display: none
+        .number-of-replies
+          float: none
+          width: 100%
+          text-align: left
+          margin-top: 15px
+    .top-gray-header
+      .topic-bar-wrapper
+        li.city-selector
+          width: 49%
+          padding: 0
+        li.bullet
+          display: none
+      .businesses-nav-list
+        div
+          width: 32%
+      .business-options-nav
+        .business-option
+          margin: 0 10px 10px 0
+          + .business-option
+            margin-left: 0
+        div
+          margin-bottom: 10px
+          vertical-align: top
+    .user-gray-header
+      .user-icon
+        background-color: inherit
+        .glyphicon
+          font-size: 60px
+          left: 0
+
+    .choose-city-bar
+      padding: 0 10px
+
+    .ui-user-profile
+      .user-main-content
+        width: 75%
+        border: none
+        padding: 0
+      .user-main-content-wide
+        .user-friends
+          ul
+            li
+              padding-right: 0
+              width: 100%
+      .user-right-sidebar
+        display: none
+
+    .businesses-list-home
+      text-align: center
+      margin-left: 0
+      li
+        width: 90%
+        margin-left: 0
+
+    .reviews-list-home
+      li
+        .recent-activity-reviewer-info
+          padding: 15px 15px 10px 15px
+
+    .event-attendees
+      ul
+        li
+          vertical-align: top
+          display: inline-block
+          width: 100%
+          margin-right: 0
+
+    .ui-index
+      padding: 30px 20px
+      .businesses-list
+        li
+          .business-list-address
+            display: none
+    .ui-business-profile, .ui-event-profile
+      .business-reviews, .business-sidebar, .business-events
+        width: 100%
+      .business-sidebar
+        border-top: 1px solid $med_gray
+        padding-top: 30px
+        .business-info-box
+          width: 70%
+        .business-info
+          padding-left: 0
+          border: none
+    .business-profile-header-buttons
+      .business-option
+        display: block
+        float: none
+      .business-option.btn-group
+        margin-left: 0
+        margin-top: 10px
+    .business-profile-add-image
+      .add-image-form
+        width: 100%
+    .ui-form-page
+      width: 100%
+      padding: 0 20px 40px 20px
+      form
+        width: 100%
+  .event-profile-header
+    .business-profile-info
+      width: 100%
+
+  .footer-wrapper
+    padding: 40px 10px
+    .footer-links
+      margin-bottom: 10px
+
+@media(max-width: 600px)
+  body
+    padding-bottom: 400px
+  footer
+    height: 400px
+
+@media(max-width: 550px)
+  section.content
+    .business-gray-header-wrapper
+      padding-bottom: 550px
+    .map-and-address
+      bottom: 300px
+    .business-profile-header-pics
+      left: 20px
+      bottom: 20px
+      right: auto
+      .header-pic-link-container
+        width: 256px
+        height: 256px
+
+@media(max-width: 500px)
+  body
+    min-width: 350px
+  header
+    .navbar-top
+      .search-form
+        input, select
+          width: 100px
+  .event-profile-header
+    .business-profile-info
+      h1
+        font-size: 24px
+  section.content .talk-forum .talk-forum-content .topic-list-item .topic-summary
+    width: 100%
+  section.content .talk-forum .talk-forum-sidebar
+    ul.topic-categories li a.topic-current-tab
+      padding-left: 5px
+    .new-topic-option
+      a.btn.new-conversation-button
+        padding-left: 1px
+        padding-right: 1px
+
+  .user-content,
+  section.content .ui-user-profile .user-main-content-wide
+    width: 70%
+  section.content .ui-user-profile .user-left-sidebar
+    padding-top: 0
+  .right-float-link
+    font-size: 11px
+  .user-event .business-icon
+    margin-bottom: 10px
+  .user-event .business-icon,
+  .user-event .business-details
+    display: block
+    float: none
+  section.content .top-gray-header
+    min-width: 350px
+  section.content .conversations-page .conversations-content
+    form ul.conversations-list
+      li.conversation-list-item
+        .user-icon-small
+          display: none
+        .conversation-list-item-checkbox
+          input[type='checkbox']
+            height: 14px
+            vertical-align: top
+        .conversation-summary-message
+          width: 200px
+        .number-of-replies
+          text-align: right
+@media(max-width: 450px)
+  body
+    padding-bottom: 450px
+  .all-users-list
+    .user-make-friends
+      ul
+        li
+          width: 100%
+  footer
+    height: 450px

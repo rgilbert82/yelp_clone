@@ -1,0 +1,22 @@
+%li(data_id="#{event.id}")
+  .user-event
+    - if logged_in? && current_user == @user
+      %span.edit-review-link
+        = link_to "Remove event", attend_event_path(event, page: "user"), remote: true, method: "post"
+    .sidebar-reviewer-info
+      .business-icon
+        = link_to city_business_event_path(business.city, business, event), class: "btn" do
+          - if business.has_images?
+            = image_tag(business.business_pics.last.image_url(:thumb).to_s)
+          - else
+            %span.glyphicon(class="#{business.category_icon}")
+      .business-details
+        %h5
+          = link_to "#{event.name}", city_business_event_path(business.city, business, event)
+          %span <b>@</b>
+          = link_to "#{business.name}", city_business_path(business.city, business)
+        .review-content
+          .review-date
+            %span #{format_date_2(event.start_time)}
+          .business-list-address
+            %p #{business.city.format_city_state}

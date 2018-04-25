@@ -1,0 +1,31 @@
+%section.top-gray-header.business-gray-header
+  .section-wrapper
+    .business-gray-header-wrapper
+      = render 'shared/messages'
+
+      .business-profile-header
+        = render "business_profile_info"
+        = render "header_buttons", city: @city, business: @business
+
+      .business-profile-header-pics
+        - $n_photos = @business.business_pics.count
+        - if $n_photos > 1
+          .header-pic-link-container.specific-pic
+            = link_to city_business_photos_path(@city, @business, photo: @business.business_pics.second.id), class: "pic-icon-secondary" do
+              = image_tag(@business.business_pics.second.image_url.to_s)
+        - if $n_photos > 0
+          .header-pic-link-container.specific-pic
+            = link_to city_business_photos_path(@city, @business, photo: @business.business_pics.first.id), class: "pic-icon-primary pic-icon-large" do
+              = image_tag(@business.business_pics.first.image_url.to_s)
+        .header-pic-link-container
+          = link_to city_business_photos_path(@city, @business), class: "pic-icon-secondary" do
+            - if $n_photos > 0
+              = image_tag(@business.business_pics.last.image_url.to_s)
+            .pic-icon-all
+              %div
+                %h5.glyphicon.glyphicon-th-large
+                %h5 #{$n_photos} photo#{$n_photos == 1 ? '' : 's'}
+
+.section-wrapper
+  %section.ui-business-profile
+    = render "business_content"

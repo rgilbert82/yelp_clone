@@ -1,0 +1,219 @@
+%section.top-gray-header
+  .business-profile-header
+    .business-profile-info
+      %h1 In N Out Burger
+      .business-rating
+        .star-rating
+          .star-box.star-box-starred
+            %span.glyphicon.glyphicon-star
+          .star-box.star-box-starred
+            %span.glyphicon.glyphicon-star
+          .star-box.star-box-starred
+            %span.glyphicon.glyphicon-star
+          .star-box.star-box-starred
+            %span.glyphicon.glyphicon-star
+          .star-box
+            %span.glyphicon.glyphicon-star
+        %span.number-of-reviews
+          114 reviews
+      .price-and-type
+        $$ &#8226;
+        = link_to "Hamburgers"
+    .business-profile-header-buttons
+      .business-option
+        %button(type="button" class="btn write-review")
+          %span.glyphicon.glyphicon-star
+          Write A Review
+      .business-option.btn-group
+        %button(type="button" class="btn btn-default")
+          %span.glyphicon.glyphicon-camera
+          Add Photo
+        %button(type="button" class="btn btn-default")
+          %span.glyphicon.glyphicon-share
+          Share
+        %button(type="button" class="btn btn-default")
+          %span.glyphicon.glyphicon-bookmark
+          Bookmark
+
+%section.ui-business-profile
+  .business-reviews
+    %h2 <strong>Recommended Reviews</strong> for In N Out Burger
+    .reviews-list
+      %ul
+        %li
+          .review-wrapper
+            .reviewer-info
+              .reviewer-icon
+                = link_to "", class: "btn" do
+                  %span.glyphicon.glyphicon-user
+              .reviewer-details
+                %h5
+                  = link_to "John Doe"
+                %span <strong>11</strong> reviews
+            .review-content
+              .star-rating
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box
+                  %span.glyphicon.glyphicon-star
+              .review-date
+                %span 3/11/17
+              .review-text
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              .review-footer
+                %h5 Was this review ...?
+                .review-footer-buttons
+                  %button(type="button" class="btn btn-default")
+                    Useful
+                    %span 3
+                  %button(type="button" class="btn btn-default")
+                    Funny
+                  %button(type="button" class="btn btn-default")
+                    Cool
+                    %span 1
+        %li
+          .review-wrapper
+            .reviewer-info
+              .reviewer-icon
+                = link_to "", class: "btn" do
+                  %span.glyphicon.glyphicon-user
+              .reviewer-details
+                %h5
+                  = link_to "Bob Smith"
+                %span <strong>24</strong> reviews
+            .review-content
+              .star-rating
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box.star-box-starred
+                  %span.glyphicon.glyphicon-star
+                .star-box
+                  %span.glyphicon.glyphicon-star
+                .star-box
+                  %span.glyphicon.glyphicon-star
+              .review-date
+                %span 3/10/17
+              .review-text
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              .review-footer
+                %h5 Was this review ...?
+                .review-footer-buttons
+                  %button(type="button" class="btn btn-default")
+                    Useful
+                    %span 1
+                  %button(type="button" class="btn btn-default")
+                    Funny
+                  %button(type="button" class="btn btn-default")
+                    Cool
+          %li
+            .review-wrapper
+              .reviewer-info
+                .reviewer-icon
+                  = link_to "", class: "btn" do
+                    %span.glyphicon.glyphicon-user
+                .reviewer-details
+                  %h5
+                    = link_to "Jane Doe"
+                  %span <strong>123</strong> reviews
+              .review-content
+                .star-rating
+                  .star-box.star-box-starred
+                    %span.glyphicon.glyphicon-star
+                  .star-box.star-box-starred
+                    %span.glyphicon.glyphicon-star
+                  .star-box.star-box-starred
+                    %span.glyphicon.glyphicon-star
+                  .star-box.star-box-starred
+                    %span.glyphicon.glyphicon-star
+                  .star-box.star-box-starred
+                    %span.glyphicon.glyphicon-star
+                .review-date
+                  %span 3/09/17
+                .review-text
+                  %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                .review-footer
+                  %h5 Was this review ...?
+                  .review-footer-buttons
+                    %button(type="button" class="btn btn-default")
+                      Useful
+                    %button(type="button" class="btn btn-default")
+                      Funny
+                      %span 4
+                    %button(type="button" class="btn btn-default")
+                      Cool
+                      %span 2
+
+      .pagination-bar
+        .current-page Page 1 of 1
+        .page-links
+
+
+  .business-sidebar
+    .business-info-box
+      %dl
+        %dt
+          %span.glyphicon.glyphicon-time
+        %dd
+          Today <b>10:00 am - 1:00 am</b>
+      %dl
+        %dt
+          %span.glyphicon.glyphicon-cutlery
+        %dd
+          = link_to "Menu"
+      %dl
+        %dt
+          $$
+        %dd
+          Price Range <b>$5 - $15</b>
+      %dl
+        %dt
+          %span.health-inspection-rating A
+        %dd
+          Health Inspection
+    .business-info
+      .business-info-hours
+        %h5 Hours
+        %ul
+          %li <b>Mon</b> 10:00 am - 1:00 am
+          %li <b>Tue</b> 10:00 am - 1:00 am
+          %li <b>Wed</b> 10:00 am - 1:00 am
+          %li <b>Thu</b> 10:00 am - 1:00 am
+          %li <b>Fri</b> 10:00 am - 1:00 am
+          %li <b>Sat</b> 10:00 am - 1:00 am
+          %li <b>Sun</b> 10:00 am - 1:00 am
+        %span.glyphicon.glyphicon-pencil
+        = link_to "Edit business info"
+      .more-business-info
+        %h5 More Business Info
+        %ul
+          %li Takes Reservations <b>No</b>
+          %li Delivery <b>No</b>
+          %li Take Out <b>Yes</b>
+          %li Accepts Credit Cards <b>Yes</b>
+          %li Accepts Apple Pay <b>No</b>
+          %li Accepts Android Pay <b>No</b>
+          %li Good For <b>Lunch, Dinner</b>
+          %li Parking <b>Lot, Street</b>
+          %li Bike Parking <b>No</b>
+          %li Wheelchair Accessible <b>No</b>
+          %li Good For Kids <b>Yes</b>
+          %li Good For Groups <b>Yes</b>
+          %li Attire <b>Casual</b>
+          %li Ambience <b>Casual</b>
+          %li Noise Level <b>Average</b>
+          %li Alcohol <b>No</b>
+          %li Outdoor Seating <b>No</b>
+          %li Wi-fi <b>No</b>
+          %li Has TV <b>No</b>
+          %li Dogs Allowed <b>No</b>
+          %li Waiter Service <b>No</b>
+          %li Caters <b>Yes</b>
+          %li Gender Neutral Restrooms <b>No</b>
