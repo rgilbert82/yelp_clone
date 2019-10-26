@@ -65,7 +65,8 @@ hr.line-break
       margin-left: 2%
 
 .section-wrapper
-  max-width: 1055px
+  max-width: 1300px
+  margin: 0 auto
 
 .ui-index
   padding: 30px 100px
@@ -137,8 +138,12 @@ hr.line-break
     border-bottom: 1px solid $med_gray
   textarea
     resize: none
+.navbar-inner-wrapper
+  margin: 0 auto
+  max-width: 1300px
+  padding: 0 100px
 .navbar-top
-  padding: 20px 100px
+  padding: 20px 0
   background-color: $yelp_red
   color: #fff
   a, a:hover
@@ -147,7 +152,7 @@ hr.line-break
   .login-buttons
     display: inline-block
 .navbar-bottom
-  padding: 0 100px
+  padding: 0
   background-color: $yelp_red_dark
   color: $white
   a, a:hover
@@ -241,7 +246,8 @@ footer
   border-top: 1px solid $med_gray
 .footer-wrapper
   padding: 40px 100px
-  max-width: 1055px
+  max-width: 1300px
+  margin: 0 auto
 .footer-links
   margin-bottom: 30px
 .footer-links-col
@@ -1797,14 +1803,16 @@ section.test_cards_section
 
 
 @media(max-width: 1075px)
+  *
+    max-width: 100% !important
   body
     min-width: 950px
-  .navbar-top, .navbar-bottom, .choose-city-bar, .choose-city-topic-bar,
+  .navbar-inner-wrapper, .choose-city-bar, .choose-city-topic-bar,
   .categories-gray-header-wrapper, .event-profile-header, .user-gray-header,
   .business-gray-photos-header-wrapper, .talk-forum, .ui-user-profile, .ui-index,
   .ui-business-profile, .ui-event-profile, .ui-photos-gallery, .ui-write-review,
   .business-gray-header-wrapper, .all-users-list, .ui-photos-gallery, .footer-wrapper
-    max-width: 1075px
+    max-width: 100%
     padding-left: 50px
     padding-right: 50px
   section.content
@@ -1921,8 +1929,9 @@ section.test_cards_section
   body
     min-width: 768px
   header
-    .navbar-top
+    .navbar-inner-wrapper
       padding: 0 50px
+    .navbar-top
       text-align: center
       .navbar-logo
         display: none
@@ -1933,7 +1942,6 @@ section.test_cards_section
         right: 0
         left: auto
     .navbar-bottom
-      padding: 0 50px
       .navbar-bottom-links
         text-align: center
       .navbar-item
@@ -2064,8 +2072,9 @@ section.test_cards_section
   body
     min-width: 600px
   header
-    .navbar-top
+    .navbar-inner-wrapper
       padding: 0 20px
+    .navbar-top
       .btn.nav-icon.navbar-logo-small
         display: inline-block
       .nav-icons
@@ -2081,7 +2090,6 @@ section.test_cards_section
         display: block
         top: -9px
     .navbar-bottom
-      padding: 0 20px
       .navbar-item
         font-size: 11px
         + .navbar-item
@@ -2261,7 +2269,7 @@ section.test_cards_section
   body
     min-width: 480px
   header
-    .navbar-top
+    .navbar-inner-wrapper
       padding: 0 10px
     .navbar-bottom
       .navbar-item
@@ -2484,10 +2492,25 @@ section.test_cards_section
 @media(max-width: 450px)
   body
     padding-bottom: 450px
+    min-width: 300px
   .all-users-list
     .user-make-friends
       ul
         li
           width: 100%
+  section.content .top-gray-header
+    min-width: 300px
   footer
     height: 450px
+
+@media(max-width: 400px)
+  .review-wrapper
+    margin-left: 100px
+    .reviewer-info
+      width: 100px
+      margin-left: -100px
+  header
+    .navbar-top
+      .search-form
+        input, select
+          width: 80px
