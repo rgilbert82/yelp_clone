@@ -1,7 +1,7 @@
 <script>Stripe.setPublishableKey("#{ENV['STRIPE_PUBLISHABLE_KEY']}");</script>
 = javascript_include_tag 'payments'
 
-%section.ui-form-page
+%section.ui-form-page.section-wrapper
   = render 'shared/messages'
 
   = form_tag donations_path, class: "form-group", id: "payment-form" do
